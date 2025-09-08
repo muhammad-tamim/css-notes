@@ -5,7 +5,7 @@
   - [1.1. How To Add CSS](#11-how-to-add-css)
   - [1.2. CSS Comments](#12-css-comments)
 - [2. variables](#2-variables)
-- [3. Cascading order, Specificity](#3-cascading-order-specificity)
+- [3. Cascading order and Specificity](#3-cascading-order-and-specificity)
   - [3.1. Cascading Order](#31-cascading-order)
   - [3.2. Specificity](#32-specificity)
 - [4. CSS Text Formatting](#4-css-text-formatting)
@@ -163,9 +163,102 @@ body{
 }
 ```
 
-## 3. Cascading order, Specificity
+## 3. Cascading order and Specificity
 ### 3.1. Cascading Order 
+The cascading order determines which style sheet apply to the html based on priority.
+- 1st priority = Inline CSS
+- 2nd priority = Internal CSS
+- 3rd priority = External CSS
+
 ### 3.2. Specificity
+
+If there are two or more CSS rules that point to the same element, the selector with the highest specificity will win, and its style declaration will be applied to that HTML element.
+
+- 1st priority = Inline CSS
+- 2nd priority = Id selector (#navbar, #hero-section)
+- 3rd priority = Classes and pseudo-classes selector (.test, :hover)
+- 4th priority = Elements and pseudo-elements selector (h1, ::before, ::after)
+
+Example 1: Here, we define a class .test with green color and a p element with red color. Since the class selector has higher specificity than the element selector, the text will appear green.
+
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .test {
+            color: green;
+        }
+        p {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <p class="test">Hello World!</p>
+</body>
+</html>
+```
+
+![specificity-example-1](./assets/images/specificity-example-1.png)
+
+Example 2:  In this case, we have:
+- .test (class selector, priority: medium) → Green
+- p (element selector, priority: low) → Red
+- #demo (ID selector, highest priority) → Blue
+Since ID selectors have the highest specificity, the text will be blue, overriding both the class and element selectors.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .test{
+            color:green;
+        }
+        p{
+            color:red;
+        }
+        #demo{
+            color: blue;
+        }
+    </style>
+</head>
+<body>
+    <p id="demo" class="test">Hello World!</p>
+</body>
+</html>
+```
+![specificity-example-2](./assets/images/specificity-example-2.png)
+
+Example 3: If both have equal specificity the latest rule wins.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            background-color: yellow;
+        }
+        h1{
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1>Heading 1</h1>
+</body>
+</html>
+```
+
+![specificity-example-3](./assets/images/specificity-example-4.png)
 
 
 ## 4. CSS Text Formatting
