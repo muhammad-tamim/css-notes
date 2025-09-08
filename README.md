@@ -20,8 +20,8 @@
   - [4.9. text-shadow:](#49-text-shadow)
   - [4.10. font-size:](#410-font-size)
   - [4.11. font-weight:](#411-font-weight)
-- [5. CSS Margin](#5-css-margin)
-  - [5.1. The auto value](#51-the-auto-value)
+- [5. Margin](#5-margin)
+  - [5.1. margin: auto;](#51-margin-auto)
   - [5.2. Margin Collapse](#52-margin-collapse)
 - [6. CSS Border](#6-css-border)
   - [6.1. border](#61-border)
@@ -423,9 +423,65 @@ Then, add a blur effect (5px) to the shadow:
 - 900(black)
 
 
-## 5. CSS Margin
-### 5.1. The auto value
+## 5. Margin
+The CSS margin properties are used to crate space around outside the elements. 
+- margin-top
+- margin-right
+- margin-bottom
+- margin-left
+
+To shorten the code, it is possible to specify all the margin properties in one property. 
+- margin: 25px 50px 75px 100px;
+  - top margin is 25px
+  - right margin is 50px
+  - bottom margin is 75px
+  - left margin is 100px
+
+if the margin property had three values:
+  - margin: 25px 50px 75px;
+  - top margin is 25px
+  - right and left margins are 50px
+  - bottom margin is 75px
+  
+if the margin property has two values:
+  - margin: 25px 50px;
+  - top and bottom margins are 25px
+  - right and left margins are 50px
+
+if the margin property has one value:
+  - margin: 25px;
+all four margins are 25px
+
+
+### 5.1. margin: auto;
+You can set the margin property to auto to horizontally center the element within its container. The element will then take up the specified width, and the remaining space will be split equally between the left and right margins.
+
+```css
+        div {
+            border: 1px solid red;
+            width: 300px;
+            margin: auto;
+        }
+```
+![](./assets/images/margin:auto.png)
+
 ### 5.2. Margin Collapse
+Top and bottom margins of elements are sometimes collapsed into a single margin that is equal to the largest of the two margins. This does not happen on left and right margins! Only top and bottom margins!
+In the below example, the `<h1>` element has a bottom margin of 50px and the `<h2>` element has a top margin set to 20px. Common sense would seem to suggest that the vertical margin between the `<h1>` and the `<h2>` would be a total of 70px (50px + 20px). But due to margin collapse, the actual margin ends up being 50px.
+
+```css
+        h1 {
+            margin: 0 0 50px 0;
+        }
+
+
+        h2 {
+            margin: 20px 0 0 0;
+        }
+```
+
+![](./assets/images/margin-collapse.png)
+
 
 ## 6. CSS Border
 ### 6.1. border
