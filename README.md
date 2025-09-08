@@ -23,8 +23,7 @@
 - [5. Margin](#5-margin)
   - [5.1. margin: auto;](#51-margin-auto)
   - [5.2. Margin Collapse](#52-margin-collapse)
-- [6. CSS Border](#6-css-border)
-  - [6.1. border](#61-border)
+- [6. Border](#6-border)
 - [7. CSS Padding](#7-css-padding)
 - [8. CSS Box-Modal](#8-css-box-modal)
   - [8.1. CSS Box-sizing](#81-css-box-sizing)
@@ -483,8 +482,37 @@ In the below example, the `<h1>` element has a bottom margin of 50px and the `<h
 ![](./assets/images/margin-collapse.png)
 
 
-## 6. CSS Border
-### 6.1. border
+## 6. Border
+The border property is a shorthand property for the following individual border properties:
+- border-width
+- border-style
+- border-color
+
+```css
+  p {
+            border: 5px solid red;
+        }
+```
+```css
+        p {
+            border-left: 5px solid red;
+        }
+```
+```css
+        p {
+            border-style: solid;
+            border-right-color: red;
+        }
+```
+```css
+       p {
+            border: 5px solid red;
+            border-radius: 10px;
+        }
+```
+
+![](./assets/images/border.png)
+
 
 ## 7. CSS Padding
 
