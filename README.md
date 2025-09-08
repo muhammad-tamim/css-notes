@@ -149,6 +149,19 @@ comment */
 ```
 
 ## 2. variables
+A CSS variable (also called a custom property) is a reusable value that you define once and use multiple times in your CSS. CSS variables are usually defined inside the :root selector so that they are available globally.
+
+```css
+:root{
+    --main-color: blue:
+    --main-font: 20px; 
+}
+
+body{
+    background-color: var(--main-color);
+    font-size: var(--main-font);
+}
+```
 
 ## 3. Cascading order, Specificity
 ### 3.1. Cascading Order 
