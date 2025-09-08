@@ -8,7 +8,7 @@
 - [3. Cascading order and Specificity](#3-cascading-order-and-specificity)
   - [3.1. Cascading Order](#31-cascading-order)
   - [3.2. Specificity](#32-specificity)
-- [4. CSS Text Formatting](#4-css-text-formatting)
+- [4. Text Formatting](#4-text-formatting)
   - [4.1. text-color](#41-text-color)
   - [4.2. text-alignment](#42-text-alignment)
   - [4.3. text-direction:](#43-text-direction)
@@ -261,18 +261,167 @@ Example 3: If both have equal specificity the latest rule wins.
 ![specificity-example-3](./assets/images/specificity-example-4.png)
 
 
-## 4. CSS Text Formatting
+## 4. Text Formatting
 ### 4.1. text-color
+- color: value; 
 ### 4.2. text-alignment
-### 4.3. text-direction:	
+- text-alignment: left(default),center, right, justify
+
+![text-alignment](./assets/images/text-alignment.png)  
+
+### 4.3. text-direction:
+```css
+  p.ex1 {
+            direction: rtl;
+            unicode-bidi: bidi-override;
+        }
+```	
+![text-direction-1](./assets/images/text-direction-1.png)  
+
+```css
+    p.ex1 {
+            direction: rtl;
+        }
+```
+![text-direction-2](./assets/images/text-direction-2.png)  
+
 ### 4.4. text-decoration:	
-### 4.5. Text-transformation:	
+
+```css
+        h1 {
+            text-decoration: overline;
+        }
+
+
+        h2 {
+            text-decoration: line-through;
+        }
+
+
+        h3 {
+            text-decoration: underline;
+        }
+
+
+        h4 {
+            text-decoration: none; /* (Removes any default text decoration, useful for removing links and lists default decoration)*/
+        }
+```
+
+![text-decoration](./assets/images/text-decoration.png)  
+
+### 4.5. Text-transformation:
+
+```css
+        h1 {
+            text-transform: uppercase;
+        }
+
+
+        h2 {
+            text-transform: capitalize;
+        }
+
+
+        h3 {
+            text-transform: lowercase;
+        }
+```
+
+![text-transform](./assets/images/text-transform.png)  
+
 ### 4.6. letter-spacing:	
+
+```css
+ h1 {
+            letter-spacing: -3px;
+        }
+
+
+        p {
+            letter-spacing: 10px;
+        }
+```
+![letter-spacing](./assets/images/letter-spacing.png)  
+
 ### 4.7. word-spacing:	
+
+```css
+        p.normal{
+            word-spacing: normal;
+        }
+
+
+        p.wide {
+            word-spacing: 10px;
+        }
+
+
+        p.narrow {
+            word-spacing: -2px;
+        }
+
+```
+
+![word-spacing](./assets/images/word-spacing.png)  
+
 ### 4.8. line-height:	
+
+```css
+        p {
+            line-height: 80px;
+        }
+```
+
+![line-height](./assets/images/line-height.png)
+
 ### 4.9. text-shadow:	
-### 4.10. font-size:	
+first 2px specify the  horizontal shadow and the 2nd 2px specify the vertical shadow:
+
+```css
+  h1 {
+            text-shadow: 2px 2px;
+        }
+```
+
+![text-shadow](./assets/images/text-shadow-1.png)  
+
+Next, add color (red) to the shadow:
+
+```css
+        h1 {
+            text-shadow: 2px 2px red;
+        }
+```
+
+![text-shadow-2](./assets/images/text-shadow-2.png)
+
+Then, add a blur effect (5px) to the shadow:
+
+```css
+        h1 {
+            text-shadow: 2px 2px 5px red;
+        }
+```
+
+![text-shadow-3](./assets/images/text-shadow-3.png)
+
+### 4.10. font-size:
+
+- font-size: value;
+  
 ### 4.11. font-weight:
+
+- 100(thin)
+- 200(extra-light)
+- 300(light)
+- 400(regular)
+- 500(medium)
+- 600(semi bold)
+- 700(bold)
+- 800(extrabold)
+- 900(black)
+
 
 ## 5. CSS Margin
 ### 5.1. The auto value
