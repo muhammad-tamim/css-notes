@@ -37,11 +37,18 @@
     - [11.1.4. Universal Selector](#1114-universal-selector)
     - [11.1.5. Groping Selector](#1115-groping-selector)
   - [11.2. Combinator Selectors](#112-combinator-selectors)
+    - [Descendant Combinator](#descendant-combinator)
+    - [Child Combinator](#child-combinator)
   - [11.3. Pseudo-class Selectors](#113-pseudo-class-selectors)
-    - [11.3.1. Pseudo-classes with links](#1131-pseudo-classes-with-links)
-      - [11.3.1.1. simple tooltip hover](#11311-simple-tooltip-hover)
-    - [11.3.2. input:focus](#1132-inputfocus)
-    - [11.3.3. :nth-child()](#1133-nth-child)
+    - [11.3.1. :link, :visited, :hover, :active](#1131-link-visited-hover-active)
+    - [11.3.2. :hover](#1132-hover)
+    - [11.3.3. input:focus](#1133-inputfocus)
+    - [11.3.4. :nth-child()](#1134-nth-child)
+  - [Pseudo-elements selectors](#pseudo-elements-selectors)
+    - [::before, ::after, ::first-letter, ::first-line](#before-after-first-letter-first-line)
+  - [Attribute selectors](#attribute-selectors)
+    - [`[type="text"]`, `[target="_blank"]`](#typetext-target_blank)
+    - [`[class^="btn-"]`](#classbtn-)
 - [12. CSS Table](#12-css-table)
   - [12.1. Table Borders:](#121-table-borders)
   - [12.2. Collapsed Table Border:](#122-collapsed-table-border)
@@ -683,20 +690,588 @@ There are two types of length units: absolute and relative.
         ![](./assets/images/vmax.png)
 
 
-## 11. CSS Selectors
+## 11. Selectors
+
+A CSS selector selects the HMTL elements you want to style. We can divide CSS selectors into five categories:
+- Simple Selectors (element, id, class, universal, groping selector)
+- Combinator Selectors (descendant & child selector)
+- Pseudo-class Selectors (:hover, :focus, :nth-child(), :first-child, :checked, :disabled, :visited, :active etc)
+- Pseudo-elements Selectors (::before, ::after, ::first-letter, ::first-line etc)
+- Attribute selectors ([type=”text”], [target=”_blank”], [class^=”btn-”] etc)
+
 ### 11.1. Simple Selectors
 #### 11.1.1. Element Selector
-#### 11.1.2. Id Selector
-#### 11.1.3. Class Selector
-#### 11.1.4. Universal Selector
-#### 11.1.5. Groping Selector
-### 11.2. Combinator Selectors
-### 11.3. Pseudo-class Selectors
-#### 11.3.1. Pseudo-classes with links
-##### 11.3.1.1. simple tooltip hover
-#### 11.3.2. input:focus
-#### 11.3.3. :nth-child()
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <style>
+        p {
+            text-align: center;
+            color: red;
+        }
+    </style>
+</head>
+
+
+<body>
+    <p>Every paragraph will be affected by the style.</p>
+    <p>Me too!</p>
+    <p>And Me!</p>
+</body>
+
+
+</html>
+```
+
+![](./assets/images/element-selector.png)
+
+#### 11.1.2. Id Selector
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <style>
+        #para1 {
+            text-align: center;
+            color: red;
+        }
+    </style>
+</head>
+
+
+<body>
+    <p id="para1">Hello World!</p>
+    <p>This paragraph is not affected by the style.</p>
+</body>
+
+
+</html>
+```
+
+![](./assets/images/id-selector.png)
+
+#### 11.1.3. Class Selector
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <style>
+        .center {
+            text-align: center;
+            color: red;
+        }
+    </style>
+</head>
+
+
+<body>
+    <h1 class="center">Red and center-aligned heading.</h1>
+    <p class="center">Red and center-aligned paragraph.</p>
+</body>
+
+
+</html>
+```
+
+![](./assets/images/class-selector.png)
+
+You can also specify that only specific HTML elements should be affected by a class. 
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <style>
+        p.center {
+            text-align: center;
+            color: red;
+        }
+    </style>
+</head>
+
+
+<body>
+    <h1 class="center">Red and center-aligned heading.</h1>
+    <p class="center">Red and center-aligned paragraph.</p>
+</body>
+
+
+</html>
+```
+
+![](./assets/images/class-selector-2.png)
+
+HTML elements can also refer to more than one class.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <style>
+        p.center {
+            text-align: center;
+            color: red;
+        }
+
+
+        p.large {
+            font-size: 300%;
+        }
+    </style>
+</head>
+
+
+<body>
+    <h1 class="center">This heading will not be affected</h1>
+    <p class="center">This paragraph will be red and center-aligned</p>
+    <p class="center large">This paragraph will be red, center-aligned, and in a large font-size</p>
+</body>
+
+
+</html>
+```
+
+![](./assets/images/class-selector-3.png)
+
+
+#### 11.1.4. Universal Selector
+
+The universal selector (*) selects all HTML elements on the page.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <style>
+        * {
+            text-align: center;
+            color: blue;
+        }
+    </style>
+</head>
+
+
+<body>
+    <h1>Hello World!</h1>
+    <p>Every element on the page will be affected by the style</p>
+    <p id="para1">Me Too!</p>
+    <p>And me!</p>
+</body>
+
+
+</html>
+```
+
+![](./assets/images/universal-selactor.png)
+
+
+#### 11.1.5. Groping Selector
+
+The grouping selector selects all the HTML elements with the same style definitions. Look at the following CSS code (the h1, h2, and p elements have the same style definitions):
+
+```html
+    <style>
+        h1 {
+            text-align: center;
+            color: red;
+        }
+
+
+        h2 {
+            text-align: center;
+            color: red;
+        }
+
+
+        p {
+            text-align: center;
+            color: red;
+        }
+    </style>
+```
+
+It will be better to group the selectors, to minimize the code. To group selectors, separate each selector with a comma (,):
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <style>
+        h1,
+        h2,
+        p {
+            text-align: center;
+            color: red;
+        }
+    </style>
+</head>
+
+
+<body>
+    <h1>Hello World</h1>
+    <h2>Smaller heading</h2>
+    <p>This is a paragraph</p>
+</body>
+
+
+</html>
+```
+
+![](./assets/images/groping-selector.png)
+
+### 11.2. Combinator Selectors
+A combinator is something that explains the relationship between the selectors. There are many different combinators in CSS:
+
+#### Descendant Combinator
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <style>
+        div p {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div>
+        <p>Selected descendant member 1</p>
+        <p>Selected descendant member 2</p>
+        <section>
+            <h2>descendant member 3</h2>
+            <p>Selected descendant member 4</p>
+        </section>
+    </div>
+    <p>Paragraph 4 outside the div descendant</p>
+    <p>Paragraph 5 in outside div descendant</p>
+</body>
+
+
+</html>
+```
+
+![](./assets/images/decendant-combinator.png)
+
+#### Child Combinator
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <style>
+        div>p {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div>
+        <p>Selected children 1 in the div parent</p>
+        <p>Selected children 2 in the div parent</p>
+        <h1>Selected children 3 in the div parent</h1>
+        <section>
+            <h2>children 1 in the section parent</h2>
+            <p>children 2 in the section parent</p>
+        </section>
+        <p>Selected children 4 in the div parent</p>
+    </div>
+    <p>children 1 in the body parent</p>
+    <p>children 2 in the body parent</p>
+</body>
+
+
+</html>
+```
+
+![](./assets/images/child-combinator.png)
+
+### 11.3. Pseudo-class Selectors
+A pseudo-class is used to define a special state of an element. 
+#### 11.3.1. :link, :visited, :hover, :active
+
+In addition, links can be styled differently depending on what state they are in. 
+
+By default, links will appear as follows in all browsers:
+
+- An unvisited link is underlined and blue
+- A visited link is underlined and purple
+- An active link is underlined and red
+
+You can edit the links with CSS in four states:
+
+- a:link – a normal, unvisited 
+- a:visited – a link the user has visited
+- a:hover – a link when the user mouse over it
+- a:active – a link the moment it is clicked
+
+```css
+      a:link {
+            background-color: green;
+            color: white;
+            text-decoration: none;
+        }
+
+
+        a:visited {
+            background-color: blue;
+            color: white;
+        }
+
+
+        a:hover {
+            background-color: red;
+            color: white;
+        }
+
+
+        a:active {
+            background-color: yellow;
+            color: white;
+        }
+```
+
+#### 11.3.2. :hover
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <style>
+        div p {
+            background-color: green;
+            color: white;
+            padding: 25px;
+            text-align: center;
+            display: none;
+            /* For hiding something */
+        }
+
+
+        div:hover p {
+            display: block;
+            /* for showing hidden items */
+        }
+    </style>
+</head>
+
+
+<body>
+    <div>
+        <h1>Hover Over me to show the p element</h1>
+        <p>Teda! Here I am!</p>
+    </div>
+</body>
+
+
+</html>
+```
+
+![](./assets/images/hover.png)
+
+#### 11.3.3. input:focus
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <style>
+        input:focus {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+
+<body>
+    <form>
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name">
+    </form>
+
+
+</body>
+
+
+</html>
+```
+
+![](./assets/images/input-focus.png)
+
+#### 11.3.4. :nth-child()
+
+Even:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <style>
+        li:nth-child(2n) {
+            /* li:nth-child(even)*/
+            background-color: red;
+        }
+    </style>
+</head>
+
+
+<body>
+    <ol>
+        <li>Founder</li>
+        <li>CEO</li>
+        <li>COO</li>
+        <li>Senior Manager</li>
+        <li>Manager</li>
+    </ol>
+</body>
+
+
+</html>
+```
+
+Odd:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <style>
+        li:nth-child(2n + 1) {
+            /* li:nth-child(odd)*/
+            background-color: red;
+        }
+    </style>
+</head>
+
+
+<body>
+    <ol>
+        <li>Founder</li>
+        <li>CEO</li>
+        <li>COO</li>
+        <li>Senior Manager</li>
+        <li>Manager</li>
+    </ol>
+</body>
+
+
+</html>
+```
+
+![](./assets/images/nth-child.png)
+
+### Pseudo-elements selectors
+#### ::before, ::after, ::first-letter, ::first-line
+Adds content before text.
+
+```html
+    <style>
+    .demo::before {
+      content: "👉 ";
+      color: blue;
+    }
+    
+    .demo::after {
+      content: " ✅";
+      color: green;
+    }
+    
+    .demo::first-letter {
+      font-size: 30px;
+      color: red;
+      font-weight: bold;
+    }
+    
+    .demo::first-line {
+      text-transform: uppercase;
+      background-color: yellow;
+    }
+    </style>
+
+<p class="demo">
+  Frontend development is fun and creative.
+  You can design beautiful user interfaces with HTML, CSS, and JavaScript.
+</p>
+
+```
+
+### Attribute selectors
+
+#### `[type="text"]`, `[target="_blank"]`
+
+```html
+<style>
+input[type="text"] {
+  border: 2px solid blue;
+}
+</style>
+
+<input type="text" placeholder="Name">
+<input type="password" placeholder="Password">
+```
+
+```html
+<style>
+a[target="_blank"] {
+  color: red;
+}
+</style>
+
+<a href="https://google.com" target="_blank">Google</a>
+<a href="https://yahoo.com">Yahoo</a>
+
+```
+
+#### `[class^="btn-"]`
+
+Selects elements with class names starting with "btn-".
+
+```html
+<style>
+[class^="btn-"] {
+  padding: 10px;
+  border-radius: 5px;
+}
+</style>
+
+<button class="btn-primary">Primary</button>
+<button class="btn-secondary">Secondary</button>
+
+```
 
 ## 12. CSS Table
 ### 12.1. Table Borders:	
