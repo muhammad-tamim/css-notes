@@ -28,7 +28,7 @@
 - [8. Box-Modal](#8-box-modal)
   - [8.1. box-sizing: border-box](#81-box-sizing-border-box)
 - [9. Background Properties](#9-background-properties)
-- [10. CSS Units](#10-css-units)
+- [10. Units](#10-units)
 - [11. CSS Selectors](#11-css-selectors)
   - [11.1. Simple Selectors](#111-simple-selectors)
     - [11.1.1. Element Selector](#1111-element-selector)
@@ -654,7 +654,34 @@ cover tells the browser to make sure the image always covers the entire containe
 ![](./assets/images/fixed.gif)
   
 
-## 10. CSS Units
+## 10. Units
+There are two types of length units: absolute and relative.
+- Absolute
+    - px 
+- Relative
+    - % = Relative to the parent element.
+    - rem = relative to font-size of the root element (2rem means 2 times the size of the current font based on the root font)
+    - em = Relative to the font-size of the parent element (2em means 2 times the size of the current font based on the parent font)
+        If the parent element font size is 10 px and then I set 2em to another element the 2em means = 10* 2 = 20px.sames rules for the rem
+    
+        ![](./assets/images/remvsem.png)  
+
+    - vw = relative to 1% of the wide of the viewport. (Viewport = the browser window size. If the viewport is 50cm wide, 1vw = 0.5cm)
+    
+        ![](./assets/images/vw.png)  
+    
+    - vh = relative to 1% of the height of the viewport
+    
+        ![](./assets/images/vh.png)
+
+    - vmin = relative to 1% of viewport’s smaller dimension
+    
+        ![](./assets/images/vmin.png)
+    
+    - vmax = relative to 1% of viewport’s larger dimension 
+
+        ![](./assets/images/vmax.png)
+
 
 ## 11. CSS Selectors
 ### 11.1. Simple Selectors
