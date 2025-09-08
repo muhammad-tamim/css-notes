@@ -24,11 +24,9 @@
   - [5.1. margin: auto;](#51-margin-auto)
   - [5.2. Margin Collapse](#52-margin-collapse)
 - [6. Border](#6-border)
-- [7. CSS Padding](#7-css-padding)
-- [8. CSS Box-Modal](#8-css-box-modal)
-  - [8.1. CSS Box-sizing](#81-css-box-sizing)
-    - [8.1.1. box-sizing: content-box(default)](#811-box-sizing-content-boxdefault)
-    - [8.1.2. box-sizing: border-box](#812-box-sizing-border-box)
+- [7. Padding](#7-padding)
+- [8. Box-Modal](#8-box-modal)
+  - [8.1. box-sizing: border-box](#81-box-sizing-border-box)
 - [9. CSS Background Properties](#9-css-background-properties)
   - [9.1. Multiple Backgrounds images](#91-multiple-backgrounds-images)
 - [10. CSS Units](#10-css-units)
@@ -514,7 +512,7 @@ The border property is a shorthand property for the following individual border 
 ![](./assets/images/border.png)
 
 
-## 7. CSS Padding
+## 7. Padding
 Padding is used to create space inside an element, between its content and border (if any). Padding Increases the inner space of an element and it does not affect the element’s margin. There are properties for setting the padding for each side of an element:
 - padding-top
 - padding-right
@@ -533,10 +531,67 @@ To shorten the code, it is possible to specify all the padding properties in one
 
 ![](./assets/images/padding.png)
 
-## 8. CSS Box-Modal
-### 8.1. CSS Box-sizing
-#### 8.1.1. box-sizing: content-box(default) 
-#### 8.1.2. box-sizing: border-box 
+## 8. Box-Modal
+In CSS, the term box model is used when taking about design and layout. The CSS box model is essentially a box that warps around every HTML element. It consists of: content, padding, borders, and margins. The image below illustrates the box model:
+
+![](./assets/images/box-model.png)
+
+Example 1:
+
+
+### 8.1. box-sizing: border-box 
+By default, when we set width and height for an element, only the content inside the element gets that size. However, if we add padding and borders, they increase the total size of the element, often breaking layouts. 
+
+```css
+        .div1 {
+            width: 300px;
+            height: 100px;
+            border: 1px solid red;
+            margin-bottom: 10px;
+        }
+
+
+        .div2 {
+            width: 300px;
+            height: 100px;
+            border: 1px solid red;
+            padding: 25px;
+        }
+```
+![](./assets/images/box-model-example-1.png.png)
+
+When we apply box-sizing: border-box;, the total width and height include content, padding, and border.
+
+```css
+        .div1 {
+            width: 300px;
+            height: 100px;
+            border: 1px solid red;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+
+        .div2 {
+            width: 300px;
+            height: 100px;
+            border: 1px solid red;
+            padding: 25px;
+            box-sizing: border-box;
+        }
+```
+
+![](./assets/images/box-model-example-2.png)
+
+**Note:** it’s recommended to apply these CSS in globally:
+
+```css
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+```
 
 ## 9. CSS Background Properties
 ### 9.1. Multiple Backgrounds images
