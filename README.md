@@ -515,6 +515,23 @@ The border property is a shorthand property for the following individual border 
 
 
 ## 7. CSS Padding
+Padding is used to create space inside an element, between its content and border (if any). Padding Increases the inner space of an element and it does not affect the element’s margin. There are properties for setting the padding for each side of an element:
+- padding-top
+- padding-right
+- padding-bottom
+- padding-left
+Note: The padding doesn’t have auto value.
+
+To shorten the code, it is possible to specify all the padding properties in one property. 
+
+```css
+        div {
+            padding: 25px 50px 75px 100px;
+            border: 1px solid red;
+        }
+```
+
+![](./assets/images/padding.png)
 
 ## 8. CSS Box-Modal
 ### 8.1. CSS Box-sizing
