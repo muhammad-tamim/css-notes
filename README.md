@@ -27,8 +27,7 @@
 - [7. Padding](#7-padding)
 - [8. Box-Modal](#8-box-modal)
   - [8.1. box-sizing: border-box](#81-box-sizing-border-box)
-- [9. CSS Background Properties](#9-css-background-properties)
-  - [9.1. Multiple Backgrounds images](#91-multiple-backgrounds-images)
+- [9. Background Properties](#9-background-properties)
 - [10. CSS Units](#10-css-units)
 - [11. CSS Selectors](#11-css-selectors)
   - [11.1. Simple Selectors](#111-simple-selectors)
@@ -593,8 +592,67 @@ When we apply box-sizing: border-box;, the total width and height include conten
         }
 ```
 
-## 9. CSS Background Properties
-### 9.1. Multiple Backgrounds images
+## 9. Background Properties
+- background-color: value;
+- background-image: url(“”);
+if you want to add multiple background images, it will be separated by commas.
+
+```html
+<head>
+    <style>
+        div {
+            width: 600px;
+            height: 300px;
+            border: 1px solid red;
+            background-image: url(assets/boy.svg), url(assets/ring.svg);
+            background-position: right bottom, left top;
+            background-repeat: no-repeat, no-repeat;
+        }
+    </style>
+</head>
+
+```
+
+![](./assets/images/background-image-1.png)
+
+Multiple background images can be specified using the background shorthand property.
+
+```html
+    <style>
+        div {
+            width: 600px;
+            height: 300px;
+            border: 1px solid red;
+            background: url(assets/boy.svg) no-repeat right bottom, url(assets/ring.svg) no-repeat left top;
+        }
+    </style>
+```
+
+- background-position: top, bottom, left, right, center;    
+  you can also use them: top left, top center, top right, bottom right, 50px 100px, 20% 40%, top 30px left20px
+- background-repeat: no-repeat, repeat, repeat-x, repeat-y;
+- background-size: length, percentages, auto(default), cover, contain;
+
+![](./assets/images/cover-vs-contain.png)
+
+cover tells the browser to make sure the image always covers the entire container, even if it has to stretch the image or cut a little bit off one of the edges. contain, on the other hand, says to always show the whole image, even if that leaves a little space to the sides or bottom.
+
+- background-position-x: center, left, right;
+- background-position-y: center, top, bottom;
+- background-attachment: fixed, scroll (default);
+
+```html
+   <style>
+        body {
+            background-image: url(assets/boy.svg);
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+    </style> 
+```
+
+![](./assets/images/fixed.gif)
+  
 
 ## 10. CSS Units
 
