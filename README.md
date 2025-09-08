@@ -2,9 +2,8 @@
 
 ### 0.1. Table of Contents
 - [1. CSS Introduction](#1-css-introduction)
-  - [1.1. CSS Syntax](#11-css-syntax)
-  - [1.2. How To Add CSS](#12-how-to-add-css)
-  - [1.3. CSS Comments](#13-css-comments)
+  - [1.1. How To Add CSS](#11-how-to-add-css)
+  - [1.2. CSS Comments](#12-css-comments)
 - [2. variables](#2-variables)
 - [3. Cascading order, Specificity](#3-cascading-order-specificity)
   - [3.1. Cascading Order](#31-cascading-order)
@@ -95,9 +94,59 @@
 
 
 ## 1. CSS Introduction
-### 1.1. CSS Syntax 
-### 1.2. How To Add CSS
-### 1.3. CSS Comments
+CSS = Cascading Style Sheets
+
+It is a stylesheet language used to describe the presentation of a document written in HTML. CSS controls the layout, design, and visual presentation of web pages.
+
+![css-syntax](./assets/images/css-syntax.png)
+
+- The selector pints to the HTML element you want to style.
+- The Declaration block contains one or more declarations separated by semicolons and surrounded by curly braces.  Each Declaration includes a CSS property name and a value, separated by a colon.
+
+### 1.1. How To Add CSS
+
+ There are three ways of inserting a style sheet:
+
+1. Inline CSS
+   
+```<h1 style="color: red;">Inline CSS</h1>```
+
+2. Internal CSS
+```html
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1{
+            color: red;
+        }
+    </style>
+</head>
+```
+3. External CSS
+```html
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+```
+```css
+h1{
+    color: red;
+}
+```
+
+### 1.2. CSS Comments
+```css
+/* This is a single line comments */
+
+/* This is 
+a multi-line
+comment */
+```
 
 ## 2. variables
 
