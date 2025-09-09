@@ -1617,6 +1617,43 @@ The position: fixed are the same but it gives her space to other and follow the 
 
 ## 16. Overflow
 
+The CSS overflow property controls what happens to content that is too big to fit into an area. The overflow property only works for block elements with a specified height. 
+
+The overflow property has the following values:
+
+- visible(default)
+
+![](./assets/images/visible.png)  
+
+- hidden
+  
+![](./assets/images/hidden.png)    
+
+- scroll 
+  
+![](./assets/images/scroll.png)  
+
+- auto (Similar to scroll, but it adds scroll bars only when necessary)
+
+![](./assets/images/auto.png)
+
+- overflow-x and overflow-y
+
+```css
+     div {
+            background-color: darkcyan;
+            width: 200px;
+            height: 65px;
+            border: 3px solid black;
+            overflow-x: hidden;
+            overflow-y: scroll;
+        }
+```
+
+![](./assets/images/overflow-xy.png)
+ 
+
+
 ## 17. Opacity
 
 ## 18. Box shadow
