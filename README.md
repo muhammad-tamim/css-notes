@@ -71,24 +71,61 @@
   - [19.3. Syntax:](#193-syntax)
   - [19.4. Fully responsive media queries breakpoints:](#194-fully-responsive-media-queries-breakpoints)
 - [20. flex](#20-flex)
-- [21. Container Properties:](#21-container-properties)
-  - [21.1. justify-content](#211-justify-content)
-  - [21.2. align-items](#212-align-items)
-  - [21.3. align-content](#213-align-content)
-  - [21.4. flex-warp](#214-flex-warp)
-  - [21.5. flex-direction](#215-flex-direction)
-  - [21.6. flex-flow](#216-flex-flow)
-- [22. Items Properties:](#22-items-properties)
-  - [22.1. order](#221-order)
-  - [22.2. flex-grow](#222-flex-grow)
-  - [22.3. flex-shrink](#223-flex-shrink)
-  - [22.4. flex-basis](#224-flex-basis)
-  - [22.5. flex](#225-flex)
-    - [22.5.1. flex:1;](#2251-flex1)
-  - [22.6. align-self](#226-align-self)
-  - [Example:](#example)
-    - [Perfect Centering with justify-content and align-items](#perfect-centering-with-justify-content-and-align-items)
-    - [Perfect Centering with margin: auto;](#perfect-centering-with-margin-auto)
+  - [20.1. Container Properties:](#201-container-properties)
+  - [20.2. justify-content](#202-justify-content)
+  - [20.3. align-items](#203-align-items)
+  - [20.4. align-content](#204-align-content)
+  - [20.5. flex-warp](#205-flex-warp)
+  - [20.6. flex-direction](#206-flex-direction)
+  - [20.7. flex-flow](#207-flex-flow)
+  - [20.8. Items Properties:](#208-items-properties)
+  - [20.9. order](#209-order)
+  - [20.10. flex-grow](#2010-flex-grow)
+  - [20.11. flex-shrink](#2011-flex-shrink)
+  - [20.12. flex-basis](#2012-flex-basis)
+  - [20.13. flex](#2013-flex)
+    - [20.13.1. flex:1;](#20131-flex1)
+  - [20.14. align-self](#2014-align-self)
+  - [20.15. Example:](#2015-example)
+    - [20.15.1. Perfect Centering with justify-content and align-items](#20151-perfect-centering-with-justify-content-and-align-items)
+    - [20.15.2. Perfect Centering with margin: auto;](#20152-perfect-centering-with-margin-auto)
+- [21. Grid](#21-grid)
+  - [21.1. Grid Container](#211-grid-container)
+  - [21.2. grid-template-columns](#212-grid-template-columns)
+  - [21.3. grid-template-rows](#213-grid-template-rows)
+  - [21.4. justify-content](#214-justify-content)
+    - [21.4.1. justify-content: space-evenly:](#2141-justify-content-space-evenly)
+    - [21.4.2. justify-content: space-around;](#2142-justify-content-space-around)
+    - [21.4.3. justify-content: space-between;](#2143-justify-content-space-between)
+    - [21.4.4. justify-content: center;](#2144-justify-content-center)
+    - [21.4.5. justify-content: start (default);](#2145-justify-content-start-default)
+    - [21.4.6. justify-content: end;](#2146-justify-content-end)
+  - [21.5. align-content](#215-align-content)
+    - [21.5.1. align-content: space-evenly:](#2151-align-content-space-evenly)
+    - [21.5.2. align-content: space-around;](#2152-align-content-space-around)
+    - [21.5.3. align-content: space-between;](#2153-align-content-space-between)
+    - [21.5.4. align-content: center;](#2154-align-content-center)
+    - [21.5.5. align-content: start;](#2155-align-content-start)
+    - [21.5.6. align-content: end;](#2156-align-content-end)
+    - [21.5.7. align-content: stretch (default)](#2157-align-content-stretch-default)
+  - [21.6. place-content](#216-place-content)
+  - [21.7. Grid Items](#217-grid-items)
+  - [21.8. grid-column-start, grid-column-end and grid-column](#218-grid-column-start-grid-column-end-and-grid-column)
+  - [21.9. grid-row-start, grid-row-end, grid-row](#219-grid-row-start-grid-row-end-grid-row)
+  - [21.10. grid-area](#2110-grid-area)
+  - [21.11. justify-self, align-self, place-self](#2111-justify-self-align-self-place-self)
+    - [21.11.1. justify-self](#21111-justify-self)
+    - [21.11.2. align-self](#21112-align-self)
+    - [21.11.3. place-self](#21113-place-self)
+  - [21.12. Grid Tricks:](#2112-grid-tricks)
+  - [21.13. repeat() function](#2113-repeat-function)
+  - [21.14. Difference between 1fr and auto](#2114-difference-between-1fr-and-auto)
+  - [21.15. Difference between auto-fill, auto-fit and 1fr:](#2115-difference-between-auto-fill-auto-fit-and-1fr)
+  - [21.16. grid-template-areas and grid area:](#2116-grid-template-areas-and-grid-area)
+  - [21.17. Simple Layout using grid:](#2117-simple-layout-using-grid)
+    - [21.17.1. Example-1:](#21171-example-1)
+    - [21.17.2. Example-2:](#21172-example-2)
+    - [21.17.3. Example-3:](#21173-example-3)
 
 
 
@@ -1832,41 +1869,41 @@ body { font-size: 14px; }
 
 ## 20. flex
 
-## 21. Container Properties: 
+### 20.1. Container Properties: 
 
-### 21.1. justify-content
+### 20.2. justify-content
 The justify-content property is used to align the flex items when they do not use all available space on the main-axis(horizontally).  
 
 ![](./assets/images/justify-content.png)
 
-### 21.2. align-items
+### 20.3. align-items
 The align-items property is used to align the single-line flex items when they do not use all available space on the cross-axis (vertically).
 
 ![](./assets/images/align-item.png)
 
-### 21.3. align-content
+### 20.4. align-content
 The align-content property is used to align the multiple-line flex items when they do not use all available space on the cross-axis(vertically).
 **Note:** applies only when the flex-wrap is set to wrap or wrap-reverse. 
 
 ![](./assets/images/align-content.png)
 
-### 21.4. flex-warp
+### 20.5. flex-warp
 The flex-wrap property specifies whether the flex items should wrap or not, if there is not enough room for them on one flex line.
 
 ![](./assets/images/flex-wrap.png)
 
-### 21.5. flex-direction
+### 20.6. flex-direction
 The flex-direction property specifies the display-direction of flex items in the flex container. 
 
 ![](./assets/images/flex-direction.png)
 
-### 21.6. flex-flow 
+### 20.7. flex-flow 
 The flex-flow property is a shorthand property for setting both the flex-direction and flex-wrap.
 
 
-## 22. Items Properties:
+### 20.8. Items Properties:
 
-### 22.1. order
+### 20.9. order
 
 ![](./assets/images/order.png)
 
@@ -1912,7 +1949,7 @@ The order property can change the order of the flex items. The order value must 
 
 ![](./assets/images/order-1.png)
 
-### 22.2. flex-grow
+### 20.10. flex-grow
 
 ![](./assets/images/flex-grow.png)
 
@@ -1958,7 +1995,7 @@ Controls how much a flex item grows to fill available space. A higher value mean
 
 ![](./assets/images/flex-grow-1.png)
 
-### 22.3. flex-shrink
+### 20.11. flex-shrink
 
 ![](./assets/images/flex-shrink.png)
 
@@ -2012,7 +2049,7 @@ Controls how much a flex item shrinks when there is not enough space. A higher v
 
 ![](./assets/images/flex-shrink-1.png)
 
-### 22.4. flex-basis
+### 20.12. flex-basis
 
 ![](./assets/images/flex-direction.png)
 
@@ -2061,7 +2098,7 @@ Defines the starting size of a flex item before any growing or shrinking occurs.
 ![](./assets/images/flex-direction.png)
 
 
-### 22.5. flex
+### 20.13. flex
 
 ![](./assets/images/flex.png)
 
@@ -2134,7 +2171,7 @@ But in this example, the container is 600px wide. Item 2 remains 200px, but Item
 
 ![](./assets/images/flex-imag.png)
 
-#### 22.5.1. flex:1;
+#### 20.13.1. flex:1;
 flex: 1; is a shorthand for flex: 1 1 0%; which consists of three properties:  
 
 - flex-grow: 1 → Allows the item to grow if extra space is available.
@@ -2185,7 +2222,7 @@ flex: 1; is a shorthand for flex: 1 1 0%; which consists of three properties:
 
 ![](./assets/images/flex.gif)
 
-### 22.6. align-self
+### 20.14. align-self
 The align-self property overrides the default alignment set by the flex container. It has the following value:auto(default) | flex-start | flex-end | center | baseline | stretch;
 
 ```html
@@ -2217,8 +2254,8 @@ The align-self property overrides the default alignment set by the flex containe
 ![](./assets/images/align-self-1.png)
 
 
-### Example:
-#### Perfect Centering with justify-content and align-items
+### 20.15. Example:
+#### 20.15.1. Perfect Centering with justify-content and align-items
 
 ```css
 .flex-container{
@@ -2246,7 +2283,7 @@ The align-self property overrides the default alignment set by the flex containe
 
 ![](./assets/images/perfect-centaring-1.png)
 
-#### Perfect Centering with margin: auto;
+#### 20.15.2. Perfect Centering with margin: auto;
 
 ```css
 .flex-container{
@@ -2276,3 +2313,974 @@ The align-self property overrides the default alignment set by the flex containe
 ![](./assets/images/perfect-centaring-2.png)
 
 
+## 21. Grid
+### 21.1. Grid Container
+
+### 21.2. grid-template-columns
+specifies the size of the columns, and how many columns in a grid layout.
+
+```css
+        .grid_container {
+            background-color: dodgerblue;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: auto auto auto auto;
+        }
+        .grid_item {
+            background-color: whitesmoke;
+            border: 1px solid black;
+            padding: 10px;
+            font-size: 30px;
+            text-align: center;
+        }
+```
+
+![](./assets/images/grid-template-coloum-1.png)
+
+```css
+ .grid_container {
+            background-color: dodgerblue;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: 80px 200px auto 40px;
+        }
+        .grid_item {
+            background-color: whitesmoke;
+            border: 1px solid black;
+            padding: 10px;
+            font-size: 30px;
+            text-align: center;
+        }
+```
+
+![](./assets/images/grid-template-columns-2.png)
+
+### 21.3. grid-template-rows
+specifies the size of the rows.
+
+**Note:** 
+it won't work properly unless grid-template-columns is also defined. It is mainly used for sizing the rows in the grid layout
+
+```css
+  .grid_container {
+            background-color: dodgerblue;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: auto auto;
+            grid-template-rows: 50px 100px 150px 200px;
+        }
+
+
+        .grid_item {
+            background-color: whitesmoke;
+            border: 1px solid black;
+            padding: 10px;
+            font-size: 30px;
+            text-align: center;
+        }
+```
+
+![](./assets/images/grid-template-row-1.png)
+
+
+### 21.4. justify-content
+Horizontally aligns the whole grid inside the container (when the total grid size is smaller than container)
+
+#### 21.4.1. justify-content: space-evenly:
+
+```css
+        .grid_container {
+            background-color: dodgerblue;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: 50px 50px 50px;
+            justify-content: space-evenly;
+        }
+
+
+        .grid_item {
+            background-color: whitesmoke;
+            border: 1px solid black;
+            padding: 10px;
+            font-size: 30px;
+            text-align: center;
+        }
+```
+
+![](./assets/images/space-evenly.png)
+
+#### 21.4.2. justify-content: space-around;
+
+![](./assets/images/justify-content:space-around.png)
+
+#### 21.4.3. justify-content: space-between;
+
+![](./assets/images/justify-content:space-between.png)
+
+#### 21.4.4. justify-content: center;
+
+![](./assets/images/justify-content:center-1.png)
+
+#### 21.4.5. justify-content: start (default);
+
+![](./assets/images/justify-content:start.png)
+
+#### 21.4.6. justify-content: end;
+
+![](./assets/images/justify-content:end.png)
+
+### 21.5. align-content
+Vertically aligns the whole grid inside the container (when the total grid size is smaller than the container)
+
+#### 21.5.1. align-content: space-evenly:
+
+```css
+        .grid_container {
+            background-color: dodgerblue;
+            padding: 10px;
+            height: 400px;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            align-content: space-evenly;
+        }
+        .grid_item {
+            background-color: whitesmoke;
+            border: 1px solid black;
+            padding: 10px;
+            font-size: 30px;
+            text-align: center;
+        }
+```
+
+![](./assets/images/align-content:space-evenly.png)
+
+#### 21.5.2. align-content: space-around;
+
+![](./assets/images/align-content:space-evenly.png)
+
+#### 21.5.3. align-content: space-between;
+
+![](./assets/images/align-content:space-evenly.png)
+
+#### 21.5.4. align-content: center;
+
+![](./assets/images/align-content:space-evenly.png)
+
+#### 21.5.5. align-content: start;
+
+![](./assets/images/align-content:space-evenly.png)
+
+#### 21.5.6. align-content: end;
+
+![](./assets/images/align-content:space-evenly.png)
+
+#### 21.5.7. align-content: stretch (default)
+
+![](./assets/images/align-content:stretch.png)
+
+### 21.6. place-content
+The place-content property is a shorthand property of the align-content and the justify-content properties. This can be useful for controlling the alignment of grid tracks along both axes in a concise way.
+
+```css
+.grid_container{
+    background-color: dodgerblue;
+    padding: 10px;
+    height: 400px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    place-content: start center;
+}
+.grid_item{
+    background-color: whitesmoke;
+    border: 1px solid black;
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
+}
+```
+
+![](./assets/images/place-content.png)
+
+### 21.7. Grid Items
+
+### 21.8. grid-column-start, grid-column-end and grid-column
+- grid-column-star: specifies where to start the gird item column 
+- grid-column-end: specifies where to end the grid item column
+- grid-column: A shorthand property for the grid-column-start and the grid-column-end properties 
+
+```css
+        .grid_container {
+            background-color: dodgerblue;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 50px;
+        }
+        .grid_item {
+            background-color: whitesmoke;
+            border: 1px solid black;
+            padding: 10px;
+            font-size: 30px;
+            text-align: center;
+        }
+        .item1 {
+            grid-column-start: 1;
+            grid-column-end: 3;
+        }
+```
+
+![](./assets/images/gird-column-startandend.png)
+
+```css
+        .grid_container {
+            background-color: dodgerblue;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 50px;
+        }
+        .grid_item {
+            background-color: whitesmoke;
+            border: 1px solid black;
+            padding: 10px;
+            font-size: 30px;
+            text-align: center;
+        }
+
+
+        .item1 {
+            grid-column: 1/3;
+        }
+```
+
+![](./assets/images/grid-column.png)
+
+### 21.9. grid-row-start, grid-row-end, grid-row
+
+```css
+        .grid_container {
+            background-color: dodgerblue;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 50px;
+        }
+
+
+        .grid_item {
+            background-color: whitesmoke;
+            border: 1px solid black;
+            padding: 10px;
+            font-size: 30px;
+            text-align: center;
+        }
+
+
+        .item1 {
+            grid-row-start: 1;
+            grid-row-end: 3;
+        }
+```
+
+![](./assets/images/grid-row-start-end.png)
+
+```css
+.grid_container {
+            background-color: dodgerblue;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 50px;
+        }
+
+
+        .grid_item {
+            background-color: whitesmoke;
+            border: 1px solid black;
+            padding: 10px;
+            font-size: 30px;
+            text-align: center;
+        }
+
+
+        .item1 {
+            grid-row: 1 / 3;
+        }
+```
+
+![](./assets/images/grid-row.png)
+
+### 21.10. grid-area
+This property is a shorthand property for the grid-row-start, grid-column-start, grid-row-end, and grid-column-end properties
+
+```css
+        .grid_container {
+            background-color: dodgerblue;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: auto auto auto;
+            gap: 50px;
+        }
+
+
+        .grid_item {
+            background-color: whitesmoke;
+            border: 1px solid black;
+            padding: 10px;
+            font-size: 30px;
+            text-align: center;
+        }
+
+
+        .item1 {
+            grid-area: 1/1/3/3;
+            /*
+     grid-row-start = 1
+     grid-column-start = 1
+     grid-row-end = 3
+     grid-column-end = 3
+     */
+        }
+```
+
+![](./assets/images/grid-area.png)
+
+### 21.11. justify-self, align-self, place-self
+#### 21.11.1. justify-self
+Align the content for a specific grid item along the row axis
+
+```css
+        .grid_container {
+            background-color: dodgerblue;
+            padding: 10px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        .grid_item {
+            background-color: whitesmoke;
+            border: 1px solid black;
+            padding: 10px;
+            font-size: 30px;
+            text-align: center;
+        }
+        .item1 {
+            justify-self: right;
+        }
+        .item6 {
+            justify-self: center;
+        }
+```
+
+![](./assets/images/justify-self.png)
+
+#### 21.11.2. align-self
+Aligns content in a grid item along the column axis 
+
+```css
+        .grid_container {
+            background-color: dodgerblue;
+            padding: 10px;
+            height: 400px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        .grid_item {
+            background-color: whitesmoke;
+            border: 1px solid black;
+            padding: 10px;
+            font-size: 30px;
+            text-align: center;
+        }
+        .item1 {
+            align-self: start;
+        }
+        .item6 {
+            align-self: center;
+        }
+```
+
+![](./assets/images/align-self1.png)
+
+#### 21.11.3. place-self
+A shorthand property for the align-self and the justify-self properties.
+
+```css
+        .grid_container {
+            background-color: dodgerblue;
+            padding: 10px;
+            height: 400px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+        }
+        .grid_item {
+            background-color: whitesmoke;
+            border: 1px solid black;
+            padding: 10px;
+            font-size: 30px;
+            text-align: center;
+        }
+        .item1 {
+            place-self: start right;
+        }
+        .item6 {
+            place-self: end center;
+        }
+```
+
+![](./assets/images/place-self.png)
+
+### 21.12. Grid Tricks:
+
+### 21.13. repeat() function
+The repeat () function can save some typing:
+```grid-template-columns: repeat(7, 1fr);  /*1fr 1fr 1fr 1fr 1fr 1fr 1fr*/```
+```grid-template-columns: repeat(7, auto);  /*auto auto auto auto auto auto auto*/```
+
+### 21.14. Difference between 1fr and auto
+1fr ensures Columns or rows share the available space equally, no matter how big or small the content inside them is.
+
+![](./assets/images/1fr.png)
+
+Auto ensures Columns or rows adjust to fit their content. If one column has more content, it becomes wider, and the others stay smaller.
+
+![](./assets/images/grid-auto.png)
+
+### 21.15. Difference between auto-fill, auto-fit and 1fr:
+
+- auto-fill:
+    - Tries to fit as many columns as possible.
+    - If there is available space, it creates extra empty spaces even if they are not needed.
+- auto-fit:
+    - Tries to fit as many columns as possible.
+    - If there is available space, it allows existing columns to expand instead of creating empty ones.
+- 1fr:
+    - 1fr ensures equal distribution of space but doesn’t auto-generate columns.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <style>
+        .grid-container {
+            display: grid;
+        }
+
+
+        .grid-container--fill {
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        }
+
+
+        .grid-container--fit {
+            grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        }
+
+
+        .grid-container--1fr {
+            grid-template-columns: repeat(7, 1fr);
+        }
+
+
+        .grid-element {
+            background-color: deepPink;
+            padding: 20px;
+            color: #fff;
+            border: 1px solid #fff;
+        }
+
+
+        body {
+            padding: 2em;
+        }
+
+
+        hr {
+            margin: 80px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <!-- auto-fill -->
+    <div class="grid-container grid-container--fill">
+        <div class="grid-element">
+            1
+        </div>
+        <div class="grid-element">
+            2
+        </div>
+        <div class="grid-element">
+            3
+        </div>
+        <div class="grid-element">
+            4
+        </div>
+        <div class="grid-element">
+            5
+        </div>
+        <div class="grid-element">
+            6
+        </div>
+        <div class="grid-element">
+            7
+        </div>
+    </div>
+
+
+    <hr>
+
+
+    <!-- auto-fit -->
+    <div class="grid-container grid-container--fit">
+        <div class="grid-element">
+            1
+        </div>
+        <div class="grid-element">
+            2
+        </div>
+        <div class="grid-element">
+            3
+        </div>
+        <div class="grid-element">
+            4
+        </div>
+        <div class="grid-element">
+            5
+        </div>
+        <div class="grid-element">
+            6
+        </div>
+        <div class="grid-element">
+            7
+        </div>
+    </div>
+
+
+    <hr>
+
+
+    <!-- 1fr -->
+    <div class="grid-container grid-container--1fr">
+        <div class="grid-element">
+            1
+        </div>
+        <div class="grid-element">
+            2
+        </div>
+        <div class="grid-element">
+            3
+        </div>
+        <div class="grid-element">
+            4
+        </div>
+        <div class="grid-element">
+            5
+        </div>
+        <div class="grid-element">
+            6
+        </div>
+        <div class="grid-element">
+            7
+        </div>
+    </div>
+
+
+</body>
+
+
+</html>
+```
+
+![](./assets/images/fit-fill-1fr.gif)
+
+### 21.16. grid-template-areas and grid area:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <style>
+        .item-a {
+            grid-area: header;
+            background-color: orange;
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+
+        .item-b {
+            grid-area: main;
+            background-color: skyblue;
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+
+        .item-c {
+            grid-area: sidebar;
+            background-color: palevioletred;
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+
+        .item-d {
+            grid-area: footer;
+            background-color: lightseagreen;
+            padding: 25px;
+            border-radius: 20px;
+            text-align: center;
+        }
+
+
+        .container {
+            border: 3px solid darkgoldenrod;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-areas:
+                "header header header header"
+                "main main . sidebar"
+                /*(.) for the empty sapce*/
+                "footer footer footer footer"
+            ;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="item-a">Header</div>
+        <div class="item-b">Main</div>
+        <div class="item-c">Sidebar</div>
+        <div class="item-d">Footer</div>
+    </div>
+</body>
+
+
+</html>
+```
+
+![](./assets/images/grid-template-area.png)
+
+### 21.17. Simple Layout using grid:
+
+#### 21.17.1. Example-1:
+**Method-1**: using grid-column and grid-row
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <style>
+        body {
+            text-align: center;
+        }
+        header,
+        aside,
+        article,
+        footer {
+            background-color: #ccc;
+            padding: 1em;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 150px auto 150px;
+            grid-template-rows: repeat(3, 100px);
+            gap: 1em;
+        }
+        header {
+            grid-row: 1;
+            /*starts on the first row line*/
+            grid-column: 1 / 4;
+            /*starts on the first column line and extend to the last column line*/
+        }
+        .sidebar-left {
+            grid-row: 2;
+            /*starts on the second row line*/
+            grid-column: 1 / 2;
+            /*starts on the first column line and extend to the second column line*/
+        }
+        article {
+            grid-row: 2;
+            /*starts on the second row line*/
+            grid-column: 2 / 3;
+            /*starts on the second column line and extend to the third column line*/
+        }
+        footer {
+            grid-row: 3;
+            /*starts on the second row line*/
+            grid-column: 1 / 4;
+            /*starts on the first column line and extend to the last column line*/
+        }
+    </style>
+</head>
+<body>
+    <div class="grid">
+        <header>Header</header>
+
+
+        <aside class="sidebar-left">Left Sidebar</aside>
+
+
+        <article>Article</article>
+
+
+        <aside class="sidebar-right">Right Sidebar</aside>
+
+
+        <footer>Footer</footer>
+    </div>
+</body>
+</html>
+```
+
+![](./assets/images/simple-1.png)
+![](./assets/images/simple-2.png)
+
+**Method 2:** using grid template areas
+
+```css
+        body {
+            text-align: center;
+        }
+        header,
+        aside,
+        article,
+        footer {
+            background-color: #ccc;
+            padding: 1em;
+        }
+        header {
+            grid-area: header;
+        }
+        footer {
+            grid-area: footer;
+        }
+        .sidebar-left {
+            grid-area: sidebar-1;
+        }
+        article {
+            grid-area: article;
+        }
+        .sidebar-right {
+            grid-area: sidebar-2;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: 150px auto 150px;
+            grid-template-rows: repeat(3, 100px);
+            gap: 1em;
+            grid-template-areas:
+                "header header header"
+                "sidebar-1 article sidebar-2"
+                "footer footer footer";
+        }
+```
+
+![](./assets/images/simple-1.png)
+
+#### 21.17.2. Example-2:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <style>
+        .box {
+            background-color: gray;
+        }
+
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(3, 200px) 50px 50px;
+            gap: 20px;
+        }
+
+
+        #box-1 {
+            grid-row: span 5;
+        }
+
+
+        #box-11,
+        #box-12 {
+            grid-column: span 3;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="box" id="box-1">box - 1</div>
+        <div class="box" id="box-2">box - 2</div>
+        <div class="box" id="box-3">box - 3</div>
+        <div class="box" id="box-4">box - 4</div>
+        <div class="box" id="box-5">box - 5</div>
+        <div class="box" id="box-6">box - 6</div>
+        <div class="box" id="box-7">box - 7</div>
+        <div class="box" id="box-8">box - 8</div>
+        <div class="box" id="box-9">box - 9</div>
+        <div class="box" id="box-10">box - 10</div>
+        <div class="box" id="box-11">box - 11</div>
+        <div class="box" id="box-12">box - 12</div>
+    </div>
+</body>
+
+
+</html>
+```
+
+![](./assets/images/simple-3.png)
+
+#### 21.17.3. Example-3:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <style>
+        .header,
+        .nav,
+        .main,
+        .sidebar,
+        .advertise,
+        .footer {
+            background-color: bisque;
+            border: 2px solid tomato;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+
+        .header {
+            grid-area: header;
+        }
+
+
+        .nav {
+            grid-area: nav;
+        }
+
+
+        .main {
+            grid-area: main;
+        }
+
+
+        .sidebar {
+            grid-area: sidebar;
+        }
+
+
+        .advertise {
+            grid-area: advertise;
+        }
+
+
+        .footer {
+            grid-area: footer;
+        }
+
+
+        .container {
+            display: grid;
+            gap: 20px;
+            grid-template-areas:
+                "header header  header  header"
+                "nav    main    main    sidebar"
+                "nav    main    main    advertise"
+                "footer footer  footer  footer"
+            ;
+        }
+
+
+        @media screen and (max-width: 576px) {
+            .container {
+                grid-template-areas:
+                    "header"
+                    "nav"
+                    "main"
+                    "sidebar"
+                    "advertise"
+                    "footer"
+                ;
+            }
+        }
+
+
+        @media screen and (min-width: 576px) and (max-width: 999px) {
+            .container {
+                display: grid;
+                gap: 20px;
+                grid-template-areas:
+                    "header header header"
+                    "nav nav nav"
+                    "sidebar main main"
+                    "advertise footer footer"
+                ;
+            }
+        }
+    </style>
+</head>
+
+
+<body class="container">
+    <header class="header">
+        <h3>The Header</h3>
+    </header>
+    <nav class="nav">
+        <ul>
+            <li><a href="">Nav 1</a></li>
+            <li><a href="">Nav 2</a></li>
+            <li><a href="">Nav 3</a></li>
+        </ul>
+    </nav>
+    <main class="main">
+        <article>
+            <h3>Main Article 1</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo dolores sit soluta consequuntur deleniti
+                labore vel laudantium illo necessitatibus nisi asperiores ratione veritatis doloribus sunt, mollitia
+                repudiandae commodi accusamus. Ab?</p>
+        </article>
+        <article>
+            <h3>Main Article 2</h3>
+            <p>Quis, molestias obcaecati. Consectetur facilis eius id explicabo, ab at veritatis minima repellendus
+                suscipit eos, velit maiores rerum dolore nemo assumenda doloribus deserunt harum accusamus iure
+                voluptas? Corrupti, inventore delectus?</p>
+        </article>
+    </main>
+    <div class="sidebar">
+        <h4>Sidebar</h4>
+    </div>
+    <div class="advertise">
+        <h4>Advertise</h4>
+    </div>
+    <footer class="footer">
+        <h3>The Footer</h3>
+    </footer>
+</body>
+
+
+</html>
+
+```
+
+![](./assets/images/simple-4.gif)
