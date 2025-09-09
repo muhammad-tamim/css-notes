@@ -118,14 +118,16 @@
     - [21.11.2. align-self](#21112-align-self)
     - [21.11.3. place-self](#21113-place-self)
   - [21.12. Grid Tricks:](#2112-grid-tricks)
-  - [21.13. repeat() function](#2113-repeat-function)
-  - [21.14. Difference between 1fr and auto](#2114-difference-between-1fr-and-auto)
-  - [21.15. Difference between auto-fill, auto-fit and 1fr:](#2115-difference-between-auto-fill-auto-fit-and-1fr)
-  - [21.16. grid-template-areas and grid area:](#2116-grid-template-areas-and-grid-area)
-  - [21.17. Simple Layout using grid:](#2117-simple-layout-using-grid)
-    - [21.17.1. Example-1:](#21171-example-1)
-    - [21.17.2. Example-2:](#21172-example-2)
-    - [21.17.3. Example-3:](#21173-example-3)
+    - [21.12.1. repeat() function](#21121-repeat-function)
+    - [21.12.2. Difference between 1fr and auto](#21122-difference-between-1fr-and-auto)
+    - [21.12.3. Difference between auto-fill, auto-fit and 1fr:](#21123-difference-between-auto-fill-auto-fit-and-1fr)
+    - [21.12.4. grid-template-areas and grid area:](#21124-grid-template-areas-and-grid-area)
+    - [21.12.5. Simple Layout using grid:](#21125-simple-layout-using-grid)
+    - [21.12.6. Example-1:](#21126-example-1)
+    - [21.12.7. Example-2:](#21127-example-2)
+    - [21.12.8. Example-3:](#21128-example-3)
+- [22. Transition](#22-transition)
+  - [22.1. transition-timing-function](#221-transition-timing-function)
 
 
 
@@ -2731,12 +2733,12 @@ A shorthand property for the align-self and the justify-self properties.
 
 ### 21.12. Grid Tricks:
 
-### 21.13. repeat() function
+#### 21.12.1. repeat() function
 The repeat () function can save some typing:
 ```grid-template-columns: repeat(7, 1fr);  /*1fr 1fr 1fr 1fr 1fr 1fr 1fr*/```
 ```grid-template-columns: repeat(7, auto);  /*auto auto auto auto auto auto auto*/```
 
-### 21.14. Difference between 1fr and auto
+#### 21.12.2. Difference between 1fr and auto
 1fr ensures Columns or rows share the available space equally, no matter how big or small the content inside them is.
 
 ![](./assets/images/1fr.png)
@@ -2745,7 +2747,7 @@ Auto ensures Columns or rows adjust to fit their content. If one column has more
 
 ![](./assets/images/grid-auto.png)
 
-### 21.15. Difference between auto-fill, auto-fit and 1fr:
+#### 21.12.3. Difference between auto-fill, auto-fit and 1fr:
 
 - auto-fill:
     - Tries to fit as many columns as possible.
@@ -2896,7 +2898,7 @@ Auto ensures Columns or rows adjust to fit their content. If one column has more
 
 ![](./assets/images/fit-fill-1fr.gif)
 
-### 21.16. grid-template-areas and grid area:
+#### 21.12.4. grid-template-areas and grid area:
 
 ```html
 <!DOCTYPE html>
@@ -2971,9 +2973,9 @@ Auto ensures Columns or rows adjust to fit their content. If one column has more
 
 ![](./assets/images/grid-template-area.png)
 
-### 21.17. Simple Layout using grid:
+#### 21.12.5. Simple Layout using grid:
 
-#### 21.17.1. Example-1:
+#### 21.12.6. Example-1:
 **Method-1**: using grid-column and grid-row
 
 ```html
@@ -3090,7 +3092,7 @@ Auto ensures Columns or rows adjust to fit their content. If one column has more
 
 ![](./assets/images/simple-1.png)
 
-#### 21.17.2. Example-2:
+#### 21.12.7. Example-2:
 
 ```html
 <!DOCTYPE html>
@@ -3148,7 +3150,7 @@ Auto ensures Columns or rows adjust to fit their content. If one column has more
 
 ![](./assets/images/simple-3.png)
 
-#### 21.17.3. Example-3:
+#### 21.12.8. Example-3:
 
 ```html
 <!DOCTYPE html>
@@ -3284,3 +3286,129 @@ Auto ensures Columns or rows adjust to fit their content. If one column has more
 ```
 
 ![](./assets/images/simple-4.gif)
+
+
+
+## 22. Transition
+CSS transitions allow you to change property values smoothly, over a given duration. 
+
+CSS transitions have the following properties:
+- transition (shorthand of transition-property, transition-duration, transition-timeing-function, transition-delay)
+- transition-property
+- transition-duration
+- transition-timing-function
+- transition-delay
+
+To create a transition effect, you must specify two things:
+- The CSS property you want to add an effect to
+- The duration of the effect (if the duration part not specified, the transition will have no effect, because the default value is 0.)
+
+example 1: 
+
+```css
+        div {
+            width: 100px;
+            height: 100px;
+            background: red;
+            transition: width 2s;
+        }
+
+
+        div:hover {
+            width: 300px;
+        }
+```
+
+![](./assets/images/transition-example-1.gif)
+
+example-2: 
+
+```css
+        div {
+            width: 100px;
+            height: 100px;
+            background: red;
+            transition: width 2s, height 4s;
+        }
+
+
+        div:hover {
+            width: 300px;
+            height: 150px;
+        }
+```
+
+![](./assets/images/transition-example-2.gif)
+
+example-3: 
+
+```css
+        div {
+            width: 100px;
+            height: 100px;
+            background: red;
+            transition: width 2s, height 2s, transform 2s;
+        }
+
+
+        div:hover {
+            width: 300px;
+            height: 300px;
+            transform: rotate(180deg);
+        }
+``` 
+
+![](./assets/images/transition-example-3.gif)
+
+
+### 22.1. transition-timing-function
+
+The transition-timing-function property specifies the speed curve of the transition effect. The transition-timing-function property can have the following values:
+
+- ease (default) = specifies a transition effect with a slow start, then fast, then end slowly
+- linear = specifies a transition effect with the same speed from start to end
+- ease-in = specifies a transition effect with a slow start
+- ease-out = specifies a transition effect with a slow end
+- ease-in-out = specifies a transition effect with a slow start and end.
+
+```css
+  div {
+            width: 100px;
+            height: 100px;
+            background: red;
+            margin-bottom: 10px;
+            transition: width 2s;
+        }
+
+
+        .div_1 {
+            transition-timing-function: linear;
+        }
+
+
+        .div_2 {
+            transition-timing-function: ease;
+        }
+
+
+        .div_3 {
+            transition-timing-function: ease-in;
+        }
+
+
+        .div_4 {
+            transition-timing-function: ease-out;
+        }
+
+
+        .div_5 {
+            transition-timing-function: ease-in-out;
+        }
+
+
+        div:hover {
+            width: 300px;
+        }
+```
+
+![](./assets/images/transition-example-1.gif)
