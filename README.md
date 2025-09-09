@@ -70,6 +70,25 @@
   - [19.2. CSS Media Features:](#192-css-media-features)
   - [19.3. Syntax:](#193-syntax)
   - [19.4. Fully responsive media queries breakpoints:](#194-fully-responsive-media-queries-breakpoints)
+- [20. flex](#20-flex)
+- [21. Container Properties:](#21-container-properties)
+  - [21.1. justify-content](#211-justify-content)
+  - [21.2. align-items](#212-align-items)
+  - [21.3. align-content](#213-align-content)
+  - [21.4. flex-warp](#214-flex-warp)
+  - [21.5. flex-direction](#215-flex-direction)
+  - [21.6. flex-flow](#216-flex-flow)
+- [22. Items Properties:](#22-items-properties)
+  - [22.1. order](#221-order)
+  - [22.2. flex-grow](#222-flex-grow)
+  - [22.3. flex-shrink](#223-flex-shrink)
+  - [22.4. flex-basis](#224-flex-basis)
+  - [22.5. flex](#225-flex)
+    - [22.5.1. flex:1;](#2251-flex1)
+  - [22.6. align-self](#226-align-self)
+  - [Example:](#example)
+    - [Perfect Centering with justify-content and align-items](#perfect-centering-with-justify-content-and-align-items)
+    - [Perfect Centering with margin: auto;](#perfect-centering-with-margin-auto)
 
 
 
@@ -1808,5 +1827,452 @@ body { font-size: 14px; }
 ### 19.2. CSS Media Features:	
 ### 19.3. Syntax:	
 ### 19.4. Fully responsive media queries breakpoints:
+
+
+
+## 20. flex
+
+## 21. Container Properties: 
+
+### 21.1. justify-content
+The justify-content property is used to align the flex items when they do not use all available space on the main-axis(horizontally).  
+
+![](./assets/images/justify-content.png)
+
+### 21.2. align-items
+The align-items property is used to align the single-line flex items when they do not use all available space on the cross-axis (vertically).
+
+![](./assets/images/align-item.png)
+
+### 21.3. align-content
+The align-content property is used to align the multiple-line flex items when they do not use all available space on the cross-axis(vertically).
+**Note:** applies only when the flex-wrap is set to wrap or wrap-reverse. 
+
+![](./assets/images/align-content.png)
+
+### 21.4. flex-warp
+The flex-wrap property specifies whether the flex items should wrap or not, if there is not enough room for them on one flex line.
+
+![](./assets/images/flex-wrap.png)
+
+### 21.5. flex-direction
+The flex-direction property specifies the display-direction of flex items in the flex container. 
+
+![](./assets/images/flex-direction.png)
+
+### 21.6. flex-flow 
+The flex-flow property is a shorthand property for setting both the flex-direction and flex-wrap.
+
+
+## 22. Items Properties:
+
+### 22.1. order
+
+![](./assets/images/order.png)
+
+The order property can change the order of the flex items. The order value must be a number, default value is 0.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <style>
+        .flex-container {
+            background-color: whitesmoke;
+            display: flex;
+        }
+
+
+        .flex-container>div {
+            background-color: dodgerblue;
+            color: white;
+            width: 100px;
+            margin: 10px;
+            text-align: center;
+            line-height: 75px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="flex-container">
+        <div style="order: 3;">1</div>
+        <div style="order: 2">2</div>
+        <div style="order: 4;">3</div>
+        <div style="order: 1;">4</div>
+    </div>
+</body>
+
+</html>
+```
+
+![](./assets/images/order-1.png)
+
+### 22.2. flex-grow
+
+![](./assets/images/flex-grow.png)
+
+Controls how much a flex item grows to fill available space. A higher value means the item will take more space relative to others. The value must be a number, default value is 0 (does not grow).
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <style>
+        .flex-container {
+            background-color: whitesmoke;
+            display: flex;
+        }
+
+
+        .flex-container>div {
+            background-color: dodgerblue;
+            color: white;
+            width: 100px;
+            margin: 10px;
+            text-align: center;
+            line-height: 75px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="flex-container">
+        <div style="flex-grow: 1">1</div>
+        <div style="flex-grow: 1">2</div>
+        <div style="flex-grow: 8">3</div>
+    </div>
+</body>
+
+
+</html>
+```
+
+![](./assets/images/flex-grow-1.png)
+
+### 22.3. flex-shrink
+
+![](./assets/images/flex-shrink.png)
+
+Controls how much a flex item shrinks when there is not enough space. A higher value means the item will shrink more. Default value is 1 (items shrink equally if needed).
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <style>
+        .flex-container {
+            display: flex;
+            align-items: stretch;
+            background-color: #f1f1f1;
+        }
+
+
+        .flex-container>div {
+            background-color: DodgerBlue;
+            color: white;
+            width: 100px;
+            margin: 10px;
+            text-align: center;
+            line-height: 75px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="flex-container">
+        <div>1</div>
+        <div>2</div>
+        <div style="flex-shrink: 2">3</div>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+        <div>10</div>
+    </div>
+</body>
+
+
+</html>
+```
+
+![](./assets/images/flex-shrink-1.png)
+
+### 22.4. flex-basis
+
+![](./assets/images/flex-direction.png)
+
+Defines the starting size of a flex item before any growing or shrinking occurs. Can be set in PX, %, or auto (default).
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <style>
+        .flex-container {
+            display: flex;
+            align-items: stretch;
+            background-color: #f1f1f1;
+        }
+
+
+        .flex-container>div {
+            background-color: DodgerBlue;
+            color: white;
+            width: 100px;
+            margin: 10px;
+            text-align: center;
+            line-height: 75px;
+            font-size: 30px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="flex-container">
+        <div>1</div>
+        <div>2</div>
+        <div style="flex-basis:200px">3</div>
+        <div>4</div>
+    </div>
+</body>
+
+
+</html>
+```
+
+![](./assets/images/flex-direction.png)
+
+
+### 22.5. flex
+
+![](./assets/images/flex.png)
+
+The flex property is a shorthand property for the flex-grow, flex-shrink and flex-basis properties.
+
+In the first example, the container is 400px wide. Item 1 starts at 200px and can grow or shrink, but there is no extra space, so it stays 200px. Item 2 is also 200px and does not change. Both items fit exactly within 400px.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <style>
+        .container {
+            display: flex;
+            width: 400px;
+            border: 2px solid black;
+        }
+
+
+        .item {
+            background: lightblue;
+            padding: 10px;
+            border: 2px solid blue;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="item" style="flex: 1 1 200px;">Item 1</div>
+        <div class="item" style="flex-basis:200px;">Item 2</div>
+    </div>
+
+
+</body>
+
+
+</html>
+```
+
+![](./assets/images/flex-image-1.png)
+
+But in this example, the container is 600px wide. Item 2 remains 200px, but Item 1 grows to 400px because it can expand when extra space is available. 
+
+```html
+<style>
+ .container {
+  display: flex;
+  width: 600px; 
+  border: 2px solid black;
+}
+
+.item {
+  background: lightblue;
+  padding: 10px;
+  border: 2px solid blue;
+}
+   
+</style>
+
+     <div class="container">
+        <div class="item" style="flex: 1 1 200px;">Item 1</div>
+        <div class="item" style="flex-basis:200px;">Item 2</div>
+      </div>
+
+```
+
+![](./assets/images/flex-imag.png)
+
+#### 22.5.1. flex:1;
+flex: 1; is a shorthand for flex: 1 1 0%; which consists of three properties:  
+
+- flex-grow: 1 → Allows the item to grow if extra space is available.
+- flex-shrink: 1 → Allows the item to shrink if there’s not enough space.
+- flex-basis: 0% → Sets the initial size of the item to 0%, meaning it takes up space based on the available room.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <style>
+        .container {
+            display: flex;
+            border: 2px solid black;
+            height: 100px;
+        }
+
+
+        .item {
+            background: lightblue;
+            padding: 10px;
+            border: 2px solid blue;
+        }
+
+
+        .item1,
+        .item2,
+        .item3 {
+            flex: 1;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="container">
+        <div class="item item1">Item 1</div>
+        <div class="item item2">Item 2</div>
+        <div class="item item3">Item 3</div>
+    </div>
+</body>
+
+
+</html>
+```
+
+![](./assets/images/flex.gif)
+
+### 22.6. align-self
+The align-self property overrides the default alignment set by the flex container. It has the following value:auto(default) | flex-start | flex-end | center | baseline | stretch;
+
+```html
+    <div class="container">
+        <div class="item">Item 1</div>
+        <div class="item">Item 2 (align-self: center)</div>
+        <div class="item">Item 3</div>
+      </div>
+```
+
+```css
+. .container {
+  display: flex;
+  height: 200px;
+  border: 2px solid black;
+}
+
+.item {
+  width: 100px;
+  height: 50px;
+  background: lightblue;
+  border: 1px solid blue;
+}
+.item:nth-child(2) {
+  align-self: center;
+}
+```
+
+![](./assets/images/align-self-1.png)
+
+
+### Example:
+#### Perfect Centering with justify-content and align-items
+
+```css
+.flex-container{
+    background-color: dodgerblue;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.flex-container > div{
+    background-color: whitesmoke;
+    width: 100px;
+    line-height: 75px;
+    margin: 10px;
+    text-align: center;
+    font-size: 30px;
+}
+```
+
+```html
+    <div class="flex-container">
+        <div>1</div>
+    </div>
+```
+
+![](./assets/images/perfect-centaring-1.png)
+
+#### Perfect Centering with margin: auto;
+
+```css
+.flex-container{
+    background-color: dodgerblue;
+    height: 600px;
+    display: flex;
+    /* justify-content: center;
+    align-items: center; */
+}
+.child{
+    background-color: whitesmoke;
+    width: 100px;
+    line-height: 75px;
+    margin: 10px;
+    text-align: center;
+    font-size: 30px;
+    margin: auto; /*magic*/
+}
+```
+
+```html
+    <div class="flex-container">
+        <div class="child">1</div>
+    </div>
+```
+
+![](./assets/images/perfect-centaring-2.png)
 
 
