@@ -128,13 +128,14 @@
     - [21.12.8. Example-3:](#21128-example-3)
 - [22. Transition](#22-transition)
   - [22.1. transition-timing-function](#221-transition-timing-function)
-- [Transform](#transform)
-  - [translate(x-axis, y-axis)](#translatex-axis-y-axis)
-  - [rotate()](#rotate)
-  - [scale()](#scale)
-  - [skew(x-axis, y-axis)](#skewx-axis-y-axis)
-  - [matrix()](#matrix)
-  - [rotateX(), rotateY() and rotateZ()](#rotatex-rotatey-and-rotatez)
+- [23. Transform](#23-transform)
+  - [23.1. translate(x-axis, y-axis)](#231-translatex-axis-y-axis)
+  - [23.2. rotate()](#232-rotate)
+  - [23.3. scale()](#233-scale)
+  - [23.4. skew(x-axis, y-axis)](#234-skewx-axis-y-axis)
+  - [23.5. matrix()](#235-matrix)
+  - [23.6. rotateX(), rotateY() and rotateZ()](#236-rotatex-rotatey-and-rotatez)
+- [24. Animation](#24-animation)
 
 
 
@@ -3421,8 +3422,8 @@ The transition-timing-function property specifies the speed curve of the transit
 ![](./assets/images/transition-example-1.gif)
 
 
-## Transform
-### translate(x-axis, y-axis)
+## 23. Transform
+### 23.1. translate(x-axis, y-axis)
 The following example moves the <div> element 50px to the right, and 100px down from its current position:
 
 ```css
@@ -3441,7 +3442,7 @@ The following example moves the <div> element 50px to the right, and 100px down 
 
 ![](./assets/images/transform-1.gif)
 
-### rotate()
+### 23.2. rotate()
 The following example rotates the <div> element clockwise with 20 degrees:
 
 ```css
@@ -3460,7 +3461,7 @@ The following example rotates the <div> element clockwise with 20 degrees:
 
 ![](./assets/images/transform-2.gif)
 
-### scale()
+### 23.3. scale()
 The following example increases the <div> element to be two times its original width, and three times of its original height:
 
 ```css
@@ -3479,7 +3480,7 @@ The following example increases the <div> element to be two times its original w
 
 ![](./assets/images/transform-3.gif)
 
-### skew(x-axis, y-axis)
+### 23.4. skew(x-axis, y-axis)
 The following example skews the <div> element 20- degrees along the x-axis, and 10 degrees along the y-axis: 
 
 ```css
@@ -3498,7 +3499,7 @@ The following example skews the <div> element 20- degrees along the x-axis, and 
 
 ![](./assets/images/transform-4.gif)
 
-### matrix()
+### 23.5. matrix()
 The matrix() function combines all the 2D transform functions into one. matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY()):
 
 ```css
@@ -3517,7 +3518,7 @@ The matrix() function combines all the 2D transform functions into one. matrix(s
 
 ![](./assets/images/transform-5.gif)
 
-### rotateX(), rotateY() and rotateZ()
+### 23.6. rotateX(), rotateY() and rotateZ()
 
 ```css
   div {
@@ -3568,3 +3569,568 @@ The matrix() function combines all the 2D transform functions into one. matrix(s
 ```
 
 ![](./assets/images/rotatez.gif)
+
+
+## 24. Animation
+
+An animation lets an element gradually change form one style to another. To use CSS animation, you must first specify keyframes for the animation, keyframes hold what styles the element will have at certain times. CSS have the following animation properties:
+- @keyframes
+- animation-name
+- animation-duration
+- animation-delay
+- animation-iteration-count
+- animation-timing-function
+- animation-fill-mode
+- animation
+
+```css
+    div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-name: example;
+            animation-duration: 4s;
+        }
+
+
+        @keyframes example {
+            form {
+                background-color: red;
+            }
+
+
+            to {
+                background-color: yellow;
+            }
+        }
+```
+
+![](./assets/images/animation1.gif)
+
+The animation-duration property defines how long an animation should take to complete. If the animation-duration property is not specified, no animation will occur, because the default value is 0s
+
+
+In the example above we have specified when the style will change by using the keywords “form” and “to” (which represents 0%(start) and 100%(complete)). It is also possible to use percent. By using percent, you can add as many style changes as you like. 
+
+```css
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-name: example;
+            animation-duration: 4s;
+        }
+
+
+        @keyframes example {
+            0% {
+                background-color: red;
+            }
+
+
+            25% {
+                background-color: yellow;
+            }
+
+
+            50% {
+                background-color: blue;
+            }
+
+
+            100% {
+                background-color: green;
+            }
+        }
+```
+
+![](./assets/images/animation2.gif)
+
+
+In the following example will change both the background-color and the position of the div element.
+
+```css
+  div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-name: example;
+            animation-duration: 4s;
+            position: relative;
+        }
+
+
+        @keyframes example {
+            0% {
+                background-color: red;
+                left: 0;
+                top: 0;
+            }
+
+
+            25% {
+                background-color: yellow;
+                left: 200px;
+                top: 0;
+            }
+
+
+            50% {
+                background-color: blue;
+                left: 200px;
+                top: 200px;
+            }
+
+
+            75% {
+                background-color: blue;
+                left: 0;
+                top: 200px;
+            }
+
+
+            100% {
+                background-color: green;
+                left: 0;
+                top: 0;
+            }
+        }
+```
+
+![](./assets/images/animation3.gif)
+
+The animation-delay property specifies a delay for the start of an animation. The following example has a 2 seconds delay before starting the animation.
+
+![](./assets/images/animation4.gif)
+
+The animation-iteration-count property specifies the number of times an animation should run. The following example will run the animation 3 times.
+
+```css
+  div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-name: example;
+            animation-duration: 4s;
+            position: relative;
+            animation-delay: 3s;
+            animation-iteration-count: 3;
+        }
+
+
+        @keyframes example {
+            0% {
+                background-color: red;
+                left: 0;
+                top: 0;
+            }
+
+
+            25% {
+                background-color: yellow;
+                left: 200px;
+                top: 0;
+            }
+
+
+            50% {
+                background-color: blue;
+                left: 200px;
+                top: 200px;
+            }
+
+
+            75% {
+                background-color: purple;
+                left: 0;
+                top: 200px;
+            }
+
+
+            100% {
+                background-color: green;
+                left: 0;
+                top: 0;
+            }
+        }
+
+```
+
+![](./assets/images/animation5.gif)
+
+The following example uses the value “infinite” to make the animation continue forever:
+
+```css
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-name: example;
+            animation-duration: 4s;
+            position: relative;
+            animation-delay: 3s;
+            animation-iteration-count: infinite;
+        }
+
+
+        @keyframes example {
+            0% {
+                background-color: red;
+                left: 0;
+                top: 0;
+            }
+
+
+            25% {
+                background-color: yellow;
+                left: 200px;
+                top: 0;
+            }
+
+
+            50% {
+                background-color: blue;
+                left: 200px;
+                top: 200px;
+            }
+
+
+            75% {
+                background-color: purple;
+                left: 0;
+                top: 200px;
+            }
+
+
+            100% {
+                background-color: green;
+                left: 0;
+                top: 0;
+            }
+        }
+```
+
+![](./assets/images/animation6.gif)
+
+The animation-direction property specifies whether an animation should be played forwards, backwards, or in alternate cycles. The animation-direction property can have the following values:
+- normal (default) – The animation is played as normal.
+- reverse – the animation is played in reverse direction (backward)
+- alternate – the animation is played forwards first, then backwards
+- alternate-reverse – The animation is played backwards first, then forwards
+
+```css
+  .demo1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-name: example;
+            animation-duration: 4s;
+            position: relative;
+            animation-delay: 3s;
+            animation-iteration-count: infinite;
+            margin-bottom: 20px;
+            animation-direction: normal;
+        }
+
+
+        .demo2 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-name: example;
+            animation-duration: 4s;
+            position: relative;
+            animation-delay: 3s;
+            animation-iteration-count: infinite;
+            margin-bottom: 20px;
+            animation-direction: reverse;
+        }
+
+
+        .demo3 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-name: example;
+            animation-duration: 4s;
+            position: relative;
+            animation-delay: 3s;
+            animation-iteration-count: infinite;
+            margin-bottom: 20px;
+            animation-direction: alternate;
+        }
+
+
+        .demo4 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-name: example;
+            animation-duration: 4s;
+            position: relative;
+            animation-delay: 3s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate-reverse;
+        }
+
+
+        @keyframes example {
+            0% {
+                background-color: red;
+                left: 0;
+                top: 0;
+            }
+
+
+            25% {
+                background-color: yellow;
+                left: 200px;
+                top: 0;
+            }
+
+
+            50% {
+                background-color: blue;
+                left: 200px;
+                top: 200px;
+            }
+
+
+            75% {
+                background-color: purple;
+                left: 0;
+                top: 200px;
+            }
+
+
+            100% {
+                background-color: green;
+                left: 0;
+                top: 0;
+            }
+```
+
+![](./assets/images/animation7.gif)
+
+The animation-timing-function property specifies the speed curve of the animation. The animation-timing-function property can have the following values:
+- ease (default) – specifies an animation with a slow start, then fast, then end slowly
+- linear – specifies an animation with the same speed from start to end
+- ease-in – specifies an animation with a slow start
+- ease-out – specifies an animation with a slow end
+- ease-in-out – specifies an animation with a slow start and end
+
+```css
+      .demo1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-name: example;
+            animation-duration: 4s;
+            position: relative;
+            animation-delay: 3s;
+            margin-bottom: 20px;
+            animation-timing-function: ease;
+        }
+
+
+        .demo2 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-name: example;
+            animation-duration: 4s;
+            position: relative;
+            animation-delay: 3s;
+            margin-bottom: 20px;
+            animation-timing-function: linear;
+        }
+
+
+        .demo3 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-name: example;
+            animation-duration: 4s;
+            position: relative;
+            animation-delay: 3s;
+            margin-bottom: 20px;
+            animation-timing-function: ease-in;
+        }
+
+
+        .demo4 {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+            background-color: red;
+            animation-name: example;
+            animation-duration: 4s;
+            position: relative;
+            animation-delay: 3s;
+            animation-timing-function: ease-out;
+        }
+
+
+        .demo5 {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 20px;
+            background-color: red;
+            animation-name: example;
+            animation-duration: 4s;
+            position: relative;
+            animation-delay: 3s;
+            animation-timing-function: ease-in-out;
+        }
+
+
+        .demo6 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-name: example;
+            animation-duration: 4s;
+            position: relative;
+            animation-delay: 3s;
+            animation-timing-function: cubic-bezier(0.23, 1, 0.320, 1);
+        }
+
+
+        @keyframes example {
+            0% {
+                background-color: red;
+                left: 0;
+                top: 0;
+            }
+
+
+            25% {
+                background-color: yellow;
+                left: 200px;
+                top: 0;
+            }
+
+
+            50% {
+                background-color: blue;
+                left: 200px;
+                top: 200px;
+            }
+
+
+            75% {
+                background-color: purple;
+                left: 0;
+                top: 200px;
+            }
+
+
+            100% {
+                background-color: green;
+                left: 0;
+                top: 0;
+            }
+        }
+```
+
+![](./assets/images/animation8.gif)
+
+
+CSS animations do not affect an element before the first keyframe is played or after the last keyframe is played. The animation-fill-mode property can override this behavior. The animation-fill-mode property specifies a style for the target element when the animation is not playing (before it starts, after it ends, or both). The animation-fill-mode property can have the following values:
+- none (default) – animation will not apply any styles to the element before or after it is executing.
+- forwards – The element will get the style values that is set by the last keyframe
+- backwards – The element will get the style values that is set by the first keyframe
+- both – the animation will follow the rules for both forwards and backwards.
+
+```css
+       .demo1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-name: example;
+            animation-duration: 4s;
+            position: relative;
+            margin-bottom: 20px;
+            animation-delay: 2s;
+            animation-fill-mode: none;
+        }
+
+
+        .demo2 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-name: example;
+            animation-duration: 4s;
+            position: relative;
+            margin-bottom: 20px;
+            animation-delay: 2s;
+            animation-fill-mode: forwards;
+        }
+
+
+        .demo3 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-name: example;
+            animation-duration: 4s;
+            position: relative;
+            margin-bottom: 20px;
+            animation-delay: 2s;
+            animation-fill-mode: backwards;
+        }
+
+
+        .demo4 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            animation-name: example;
+            animation-duration: 4s;
+            position: relative;
+            margin-bottom: 20px;
+            animation-delay: 2s;
+            animation-fill-mode: both;
+        }
+
+
+        @keyframes example {
+            0% {
+                background-color: red;
+                left: 0;
+                top: 0;
+            }
+
+
+            25% {
+                background-color: yellow;
+                left: 200px;
+                top: 0;
+            }
+
+
+            50% {
+                background-color: blue;
+                left: 200px;
+                top: 200px;
+            }
+
+
+            75% {
+                background-color: purple;
+                left: 0;
+                top: 200px;
+            }
+
+
+            100% {
+                background-color: green;
+                left: 0;
+                top: 0;
+            }
+        }
+```
+
+![](./assets/images/animation9.gif)
