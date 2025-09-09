@@ -1655,6 +1655,20 @@ The overflow property has the following values:
 
 
 ## 17. Opacity
+The opacity property can take a value form 0.0 – 1.0. The lower the value, the more transparent: 
+
+```css
+        img {
+            opacity: 0.5;
+        }
+
+
+        img:hover {
+            opacity: 1.0;
+        }
+```
+
+![](./assets/images/opacity.gif)
 
 ## 18. Box shadow
 ### 18.1. Specify a Horizontal and a Vertical shadow:	
