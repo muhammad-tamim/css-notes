@@ -29,7 +29,7 @@
   - [8.1. box-sizing: border-box](#81-box-sizing-border-box)
 - [9. Background Properties](#9-background-properties)
 - [10. Units](#10-units)
-- [11. CSS Selectors](#11-css-selectors)
+- [11. Selectors](#11-selectors)
   - [11.1. Simple Selectors](#111-simple-selectors)
     - [11.1.1. Element Selector](#1111-element-selector)
     - [11.1.2. Id Selector](#1112-id-selector)
@@ -37,39 +37,19 @@
     - [11.1.4. Universal Selector](#1114-universal-selector)
     - [11.1.5. Groping Selector](#1115-groping-selector)
   - [11.2. Combinator Selectors](#112-combinator-selectors)
-    - [Descendant Combinator](#descendant-combinator)
-    - [Child Combinator](#child-combinator)
+    - [11.2.1. Descendant Combinator](#1121-descendant-combinator)
+    - [11.2.2. Child Combinator](#1122-child-combinator)
   - [11.3. Pseudo-class Selectors](#113-pseudo-class-selectors)
     - [11.3.1. :link, :visited, :hover, :active](#1131-link-visited-hover-active)
     - [11.3.2. :hover](#1132-hover)
     - [11.3.3. input:focus](#1133-inputfocus)
     - [11.3.4. :nth-child()](#1134-nth-child)
-  - [Pseudo-elements selectors](#pseudo-elements-selectors)
-    - [::before, ::after, ::first-letter, ::first-line](#before-after-first-letter-first-line)
-  - [Attribute selectors](#attribute-selectors)
-    - [`[type="text"]`, `[target="_blank"]`](#typetext-target_blank)
-    - [`[class^="btn-"]`](#classbtn-)
-- [12. CSS Table](#12-css-table)
-  - [12.1. Table Borders:](#121-table-borders)
-  - [12.2. Collapsed Table Border:](#122-collapsed-table-border)
-  - [12.3. Style Table Borders:](#123-style-table-borders)
-  - [12.4. Round Table Borders:](#124-round-table-borders)
-  - [12.5. Text-Align:](#125-text-align)
-  - [12.6. Vertical-align:](#126-vertical-align)
-  - [12.7. Dotted Table Borders:](#127-dotted-table-borders)
-  - [12.8. HTML Table Width:](#128-html-table-width)
-  - [12.9. HTML Table height:](#129-html-table-height)
-  - [12.10. Vertical Table Headers:](#1210-vertical-table-headers)
-  - [12.11. Align Table Headers:](#1211-align-table-headers)
-  - [12.12. Cell padding:](#1212-cell-padding)
-  - [12.13. Cell Spacing:](#1213-cell-spacing)
-  - [12.14. HTML Table -Colspan:](#1214-html-table--colspan)
-  - [12.15. HTML Table- Rowspan:](#1215-html-table--rowspan)
-  - [12.16. HTML Table – Zebra Stripes:](#1216-html-table--zebra-stripes)
-  - [12.17. HTML Table – Vertical Zebra Stripes:](#1217-html-table--vertical-zebra-stripes)
-  - [12.18. Combine Vertical and Horizontal Zebra Stripes:](#1218-combine-vertical-and-horizontal-zebra-stripes)
-  - [12.19. Horizontal Dividers:](#1219-horizontal-dividers)
-  - [12.20. Hover able Table:](#1220-hover-able-table)
+  - [11.4. Pseudo-elements selectors](#114-pseudo-elements-selectors)
+    - [11.4.1. ::before, ::after, ::first-letter, ::first-line](#1141-before-after-first-letter-first-line)
+  - [11.5. Attribute selectors](#115-attribute-selectors)
+    - [11.5.1. `[type="text"]`, `[target="_blank"]`](#1151-typetext-target_blank)
+    - [11.5.2. `[class^="btn-"]`](#1152-classbtn-)
+- [12. Table](#12-table)
 - [13. Display Property](#13-display-property)
 - [14. Position Property](#14-position-property)
   - [14.1. static(default):](#141-staticdefault)
@@ -940,7 +920,7 @@ It will be better to group the selectors, to minimize the code. To group selecto
 ### 11.2. Combinator Selectors
 A combinator is something that explains the relationship between the selectors. There are many different combinators in CSS:
 
-#### Descendant Combinator
+#### 11.2.1. Descendant Combinator
 
 ```html
 <!DOCTYPE html>
@@ -975,7 +955,7 @@ A combinator is something that explains the relationship between the selectors. 
 
 ![](./assets/images/decendant-combinator.png)
 
-#### Child Combinator
+#### 11.2.2. Child Combinator
 
 ```html
 <!DOCTYPE html>
@@ -1194,8 +1174,8 @@ Odd:
 
 ![](./assets/images/nth-child.png)
 
-### Pseudo-elements selectors
-#### ::before, ::after, ::first-letter, ::first-line
+### 11.4. Pseudo-elements selectors
+#### 11.4.1. ::before, ::after, ::first-letter, ::first-line
 Adds content before text.
 
 ```html
@@ -1229,9 +1209,9 @@ Adds content before text.
 
 ```
 
-### Attribute selectors
+### 11.5. Attribute selectors
 
-#### `[type="text"]`, `[target="_blank"]`
+#### 11.5.1. `[type="text"]`, `[target="_blank"]`
 
 ```html
 <style>
@@ -1256,7 +1236,7 @@ a[target="_blank"] {
 
 ```
 
-#### `[class^="btn-"]`
+#### 11.5.2. `[class^="btn-"]`
 
 Selects elements with class names starting with "btn-".
 
@@ -1273,28 +1253,166 @@ Selects elements with class names starting with "btn-".
 
 ```
 
-## 12. CSS Table
-### 12.1. Table Borders:	
-### 12.2. Collapsed Table Border:	
-### 12.3. Style Table Borders:	
-### 12.4. Round Table Borders:	
-### 12.5. Text-Align:	
-### 12.6. Vertical-align:	
-### 12.7. Dotted Table Borders:	
-### 12.8. HTML Table Width:	
-### 12.9. HTML Table height:	
-### 12.10. Vertical Table Headers:	
-### 12.11. Align Table Headers:	
-### 12.12. Cell padding:	
-### 12.13. Cell Spacing:	
-### 12.14. HTML Table -Colspan:	
-### 12.15. HTML Table- Rowspan:	
-### 12.16. HTML Table – Zebra Stripes:	
-### 12.17. HTML Table – Vertical Zebra Stripes:	
-### 12.18. Combine Vertical and Horizontal Zebra Stripes:	
-### 12.19. Horizontal Dividers:	
-### 12.20. Hover able Table:
+## 12. Table
 
+```css
+   table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+```
+
+![](./assets/images/table-1.png)
+
+```css
+       table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+```
+
+![](./assets/images/table-2.png)
+
+```css
+ table,
+        td,
+        th {
+            border: 1px solid black;
+        }
+
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+
+        td {
+            text-align: center;
+        }
+```
+
+![](./assets/images/table-3.png)
+
+```css
+  table,
+        td,
+        th {
+            border: 1px solid black;
+        }
+
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+
+        tr {
+            height: 50px;
+            vertical-align: bottom;
+        }
+```
+
+![](./assets/images/table-4.png)
+
+```css
+        table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+
+        th,
+        td {
+            padding: 15px;
+        }
+```
+
+![](./assets/images/table-5.png)
+
+```css
+    table,
+        th,
+        td {
+            border: 1px solid black;
+        }
+
+
+        table {
+            border-spacing: 30px;
+        }
+```
+
+![](./assets/images/table-6.png)
+
+```css
+  <table>
+        <tr>
+            <th colspan="2">Name</th>
+            <th>Age</th>
+        </tr>
+        <tr>
+            <td>Jill</td>
+            <td>Smith</td>
+            <td>50</td>
+        </tr>
+        <tr>
+            <td>Eve</td>
+            <td>Jackson</td>
+            <td>95</td>
+        </tr>
+        <tr>
+            <td>John</td>
+            <td>Doe</td>
+            <td>80</td>
+        </tr>
+    </table>
+```
+
+![](./assets/images/table-7.png)
+
+```css
+<table>
+        <tr>
+            <th>Name</th>
+            <td>Jill</td>
+        </tr>
+        <tr>
+            <th rowspan="2">Phone</th>
+            <td>555-1234</td>
+        </tr>
+        <tr>
+            <td>555-8745</td>
+        </tr>
+    </table>
+```
+
+![](./assets/images/table-8.png)
+
+```css
+   table {
+            width: 100%;
+        }
+
+
+        th,
+        td {
+            text-align: center;
+            padding: 8px;
+        }
+
+
+        tr:nth-child(even) {
+            background-color: lightblue;
+        }
+```
+
+![](./assets/images/table-9.png)
 
 ## 13. Display Property
 
