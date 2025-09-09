@@ -128,6 +128,13 @@
     - [21.12.8. Example-3:](#21128-example-3)
 - [22. Transition](#22-transition)
   - [22.1. transition-timing-function](#221-transition-timing-function)
+- [Transform](#transform)
+  - [translate(x-axis, y-axis)](#translatex-axis-y-axis)
+  - [rotate()](#rotate)
+  - [scale()](#scale)
+  - [skew(x-axis, y-axis)](#skewx-axis-y-axis)
+  - [matrix()](#matrix)
+  - [rotateX(), rotateY() and rotateZ()](#rotatex-rotatey-and-rotatez)
 
 
 
@@ -3412,3 +3419,152 @@ The transition-timing-function property specifies the speed curve of the transit
 ```
 
 ![](./assets/images/transition-example-1.gif)
+
+
+## Transform
+### translate(x-axis, y-axis)
+The following example moves the <div> element 50px to the right, and 100px down from its current position:
+
+```css
+        div {
+            width: 300px;
+            height: 100px;
+            background-color: yellow;
+            border: 1px solid red;
+        }
+
+
+        div:hover {
+            transform: translate(50px, 100px);
+        }
+```
+
+![](./assets/images/transform-1.gif)
+
+### rotate()
+The following example rotates the <div> element clockwise with 20 degrees:
+
+```css
+        div {
+            width: 300px;
+            height: 100px;
+            background-color: yellow;
+            border: 1px solid red;
+        }
+
+
+        div:hover {
+            transform: rotate(20deg);
+        }
+```
+
+![](./assets/images/transform-2.gif)
+
+### scale()
+The following example increases the <div> element to be two times its original width, and three times of its original height:
+
+```css
+         div {
+            width: 300px;
+            height: 100px;
+            background-color: yellow;
+            border: 1px solid red;
+        }
+
+
+        div:hover {
+            transform: scale(2, 3);
+        }
+```
+
+![](./assets/images/transform-3.gif)
+
+### skew(x-axis, y-axis)
+The following example skews the <div> element 20- degrees along the x-axis, and 10 degrees along the y-axis: 
+
+```css
+        div {
+            width: 300px;
+            height: 100px;
+            background-color: yellow;
+            border: 1px solid red;
+        }
+
+
+        div:hover {
+            transform: skew(20deg, 10deg);
+        } 
+```
+
+![](./assets/images/transform-4.gif)
+
+### matrix()
+The matrix() function combines all the 2D transform functions into one. matrix(scaleX(), skewY(), skewX(), scaleY(), translateX(), translateY()):
+
+```css
+ div {
+            width: 300px;
+            height: 100px;
+            background-color: yellow;
+            border: 1px solid red;
+        }
+
+
+        div:hover {
+            transform: matrix(1, 0, 0.5, 1, 150, 0);
+        }
+```
+
+![](./assets/images/transform-5.gif)
+
+### rotateX(), rotateY() and rotateZ()
+
+```css
+  div {
+            width: 300px;
+            height: 100px;
+            background-color: yellow;
+            border: 1px solid red;
+        }
+
+
+        div:hover {
+            transform: rotateX(150deg);
+        }
+```
+
+![](./assets/images/rotatex.gif)
+
+```css
+        div {
+            width: 300px;
+            height: 100px;
+            background-color: yellow;
+            border: 1px solid red;
+        }
+
+
+        div:hover {
+            transform: rotateY(150deg);
+        }
+```
+
+![](./assets/images/rotatey.gif)
+
+
+```css
+        div {
+            width: 300px;
+            height: 100px;
+            background-color: yellow;
+            border: 1px solid red;
+        }
+
+
+        div:hover {
+            transform: rotateZ(90deg);
+        }
+
+```
+
+![](./assets/images/rotatez.gif)
