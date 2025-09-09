@@ -1416,6 +1416,76 @@ Selects elements with class names starting with "btn-".
 
 ## 13. Display Property
 
+- inline
+- block
+- inline-block
+- none
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <style>
+        .inline {
+            display: inline;
+            background-color: lightblue;
+            padding: 5px;
+        }
+
+
+        .block {
+            display: block;
+            background-color: lightgreen;
+            padding: 10px;
+            margin: 5px 0;
+        }
+
+
+        .inline-block {
+            display: inline-block;
+            background-color: lightcoral;
+            padding: 10px;
+            margin: 5px;
+        }
+
+
+        .none {
+            display: none;
+        }
+
+
+        .container {
+            border: 1px solid #000;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+
+<body>
+    <div class="inline">This is inline</div>
+    <div class="inline">Another inline</div>
+
+
+    <span class="block">This is block</span>
+    <span class="block">Another block</span>
+
+
+    <div class="inline-block">This is inline-block</div>
+    <div class="inline-block">Another inline-block</div>
+
+
+    <div class="none">You can't see me (display: none)</div>
+</body>
+
+
+</html>
+```
+
+![](./assets/images/display-property.png)
+
 ## 14. Position Property
 ### 14.1. static(default):
 ### 14.2. Relative:	
