@@ -1587,6 +1587,34 @@ The position: fixed are the same but it gives her space to other and follow the 
 
 ## 15. z-index property
 
+```html
+        <style>
+        .box{
+            position: absolute;
+        }
+        .boy{
+            z-index: 3;
+        }
+        .ring{
+            z-index: 2;
+            top: 45px;
+        }
+        .water{
+            z-index: 1;
+            top: 60px;
+        }
+        </style>
+
+    <div>
+        <div class="box boy"><img src="assets/boy.svg" alt=""></div>
+        <div class="box ring"><img src="assets/ring.svg" alt=""></div>
+        <div class="box water"><img src="assets/water.svg" alt=""></div>
+    </div>
+```
+
+![](./assets/images/z-index.png)
+
+
 ## 16. Overflow
 
 ## 17. Opacity
