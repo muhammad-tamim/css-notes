@@ -61,10 +61,10 @@
 - [16. Overflow](#16-overflow)
 - [17. Opacity](#17-opacity)
 - [18. Box shadow](#18-box-shadow)
-  - [18.2. Specify a color for the shadow:](#182-specify-a-color-for-the-shadow)
-  - [18.3. Add a blur effect to the shadow:](#183-add-a-blur-effect-to-the-shadow)
-  - [18.4. Set the spread radius of the shadow:](#184-set-the-spread-radius-of-the-shadow)
-  - [18.5. Set the inset parameter:](#185-set-the-inset-parameter)
+  - [18.1. Specify a color for the shadow:](#181-specify-a-color-for-the-shadow)
+  - [18.2. Add a blur effect to the shadow:](#182-add-a-blur-effect-to-the-shadow)
+  - [18.3. Set the spread radius of the shadow:](#183-set-the-spread-radius-of-the-shadow)
+  - [18.4. Set the inset parameter:](#184-set-the-inset-parameter)
 - [19. Media Queries](#19-media-queries)
   - [19.1. CSS Media Types:](#191-css-media-types)
   - [19.2. CSS Media Features:](#192-css-media-features)
@@ -1745,13 +1745,65 @@ The inset parameter changes the shadow from an outer shadow to an inner shadow.
 ![](./assets/images/shadow5.png)
 
 
-### 18.2. Specify a color for the shadow:	
-### 18.3. Add a blur effect to the shadow:	
-### 18.4. Set the spread radius of the shadow:	
-### 18.5. Set the inset parameter:	
+### 18.1. Specify a color for the shadow:	
+### 18.2. Add a blur effect to the shadow:	
+### 18.3. Set the spread radius of the shadow:	
+### 18.4. Set the inset parameter:	
 
 
 ## 19. Media Queries
+
+- max-width (Desktop-First) = works when the screen is at least this wide or smaller.
+
+```css
+/* Default (desktop) */
+body { font-size: 18px; }
+
+/* Tablet and smaller */
+@media (max-width: 1024px) {
+  body { font-size: 16px; }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  body { font-size: 14px; }
+}
+```  
+ 
+- min-width(Mobile first - recommended) = works when the screen is at least this wide or bigger.
+
+```css
+/* Default (mobile) */
+body { font-size: 14px; }
+
+/* Tablet and up */
+@media (min-width: 768px) {
+  body { font-size: 16px; }
+}
+
+/* Desktop and up */
+@media (min-width: 1024px) {
+  body { font-size: 18px; }
+}
+```
+
+- max-height = maximum height of the viewport
+- min-height = minimum heigh of the viewport
+- width = width of the viewport (include scrollbar)
+- height = height of the viewport (including scrollbar)
+
+**Common breakpoints**
+
+- Extra small (mobile): max-width: 600px
+
+- Small (tablet portrait): min-width: 601px and max-width: 768px
+
+- Medium (tablet landscape): min-width: 769px and max-width: 1024px
+
+- Large (desktop): min-width: 1025px and max-width: 1440px
+
+- Extra large (wide desktop): min-width: 1441px
+
 ### 19.1. CSS Media Types:	
 ### 19.2. CSS Media Features:	
 ### 19.3. Syntax:	
