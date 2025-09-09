@@ -61,7 +61,6 @@
 - [16. Overflow](#16-overflow)
 - [17. Opacity](#17-opacity)
 - [18. Box shadow](#18-box-shadow)
-  - [18.1. Specify a Horizontal and a Vertical shadow:](#181-specify-a-horizontal-and-a-vertical-shadow)
   - [18.2. Specify a color for the shadow:](#182-specify-a-color-for-the-shadow)
   - [18.3. Add a blur effect to the shadow:](#183-add-a-blur-effect-to-the-shadow)
   - [18.4. Set the spread radius of the shadow:](#184-set-the-spread-radius-of-the-shadow)
@@ -1671,7 +1670,81 @@ The opacity property can take a value form 0.0 – 1.0. The lower the value, the
 ![](./assets/images/opacity.gif)
 
 ## 18. Box shadow
-### 18.1. Specify a Horizontal and a Vertical shadow:	
+The CSS box-shadow property is used to apply one or more shadows to an element. 
+
+**Specify a Horizontal and a Vertical shadow:**
+
+The default color of the shadow is the current text-color.
+
+```css
+        div {
+            width: 300px;
+            height: 100px;
+            background-color: coral;
+            box-shadow: 10px 10px;
+        }
+```
+
+![](./assets/images/shadow1.png)
+
+
+**specify a color for the shadow:**
+
+```css
+        div {
+            width: 300px;
+            height: 100px;
+            background-color: coral;
+            box-shadow: 10px 10px lightblue;
+        }
+```
+
+![](./assets/images/shadow2.png)
+
+**Add a blur effect to the shadow:**
+
+```css
+        div {
+            width: 300px;
+            height: 100px;
+            background-color: coral;
+            box-shadow: 10px 10px 5px lightblue;
+        }
+```
+
+![](./assets/images/shadow3.png)
+
+**Set the spread radius of the shadow:**
+
+The spread parameter defines the spread radius. A positive value increases the size of the shadow, a negative value decreases the size of the shadow.
+
+```css
+        div {
+            width: 300px;
+            height: 100px;
+            background-color: coral;
+            box-shadow: 10px 10px 5px 12px lightblue;
+        }
+```
+
+![](./assets/images/shadow4.png)
+
+**Set the inset parameter:**
+
+The inset parameter changes the shadow from an outer shadow to an inner shadow.
+
+```css
+        div {
+            width: 300px;
+            height: 100px;
+            background-color: coral;
+            box-shadow: 10px 10px 5px 12px lightblue inset;
+        }
+```
+
+![](./assets/images/shadow5.png)
+
+
 ### 18.2. Specify a color for the shadow:	
 ### 18.3. Add a blur effect to the shadow:	
 ### 18.4. Set the spread radius of the shadow:	
