@@ -1488,10 +1488,101 @@ Selects elements with class names starting with "btn-".
 
 ## 14. Position Property
 ### 14.1. static(default):
+
+![](./assets/images/static.png)
+
 ### 14.2. Relative:	
+When we apply position: relative to an element, it stays in its original position within the document flow but allows us to move it around using properties like top, right, bottom, and left. The element's original space is still reserved, meaning other elements won't shift to take its place.
+
+![](./assets/images/relative.png)
+
+```html
+    <div class="swim_container">
+        <div class="box boy"><img src="assets/boy.svg" alt=""></div>
+        <div class="box ring"><img src="assets/ring.svg" alt=""></div>
+        <div class="box water"><img src="assets/water.svg" alt=""></div>
+    </div>
+CSS:
+.box{
+    border: 1px solid red;
+    width: 200px;
+}
+.ring{
+    position: relative;
+    bottom: 30px;
+}
+```
+
 ### 14.3. absolute:	
+When we apply position: absolute to an element, it is completely removed from its original position in the document flow. This allows us to move it around freely using properties like top, right, bottom, and left to base on her parent frame. However, since the element is no longer part of the normal flow, its original space is not reserved, causing other elements to shift and fill the gap.
+
+![](./assets/images/absolute.png)
+
+```css
+.box{
+    border: 1px solid red;
+    width: 200px;
+}
+.ring{
+    position: absolute;
+    top: 105px;
+}
+
+```
+
 ### 14.4. Sticky:	
+The position: sticky property allows an element to "stick" to a specific position within its parent container when the page is scrolled. It behaves like relative until a specified scroll position is reached, then it behaves like fixed. This is often used to keep elements like headers or navigation bars visible while scrolling.
+
+![](./assets/images/sticky.gif)
+
+
+```css
+.container{
+    border: 10px solid goldenrod;
+    height: 500px;
+    width: 200px;
+}
+.container2{
+    border: 10px solid red;
+    height: 500px;
+    width: 200px;
+}
+.box{
+    border: 1px solid red;
+    width: 200px;
+}
+.ring{
+    position: sticky;
+    top: 20px;
+}
+```
+
 ### 14.5. Fixed:	
+The position: fixed are the same but it gives her space to other and follow the position to her parent.
+
+![](./assets/images/fixed2.gif)
+
+
+```css
+.container{
+    border: 10px solid goldenrod;
+    height: 500px;
+    width: 200px;
+}
+.container2{
+    border: 10px solid red;
+    height: 500px;
+    width: 200px;
+}
+.box{
+    border: 1px solid red;
+    width: 200px;
+}
+.ring{
+    position: fixed;
+    top: 20px;
+}
+```
 
 
 ## 15. z-index property
