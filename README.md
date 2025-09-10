@@ -140,6 +140,15 @@
 ## 1. CSS Introduction
 CSS stands for Cascading Style Sheets. It’s used to control the presentation and layout of HTML elements.
 
+**What is Cascading**
+
+Cascading in CSS refers to the order in which styles are applied to HTML elements when multiple rules could apply. The browser decides which style “wins” based on a set of rules called cascade rules.
+
+The browser determines which CSS rule to apply using three main factors:
+- Importance based on cascading order (Inline styles, internal styles, external styles, and !important.)
+- specificity
+- Source Order (When cascading order and specificity are equal, the later rule in the stylesheet wins.)
+
 ![css-syntax](./assets/images/css-syntax.png)
 
 - The selector points to the HTML element you want to style.
@@ -147,7 +156,7 @@ CSS stands for Cascading Style Sheets. It’s used to control the presentation a
 
 ### 1.1. How To Add CSS
 
- There are three ways of inserting a style sheet:
+There are three ways of inserting a style sheet:
 
 1. Inline CSS
    
@@ -207,7 +216,7 @@ body{
 
 ## 3. Cascading order and Specificity
 ### 3.1. Cascading Order 
-The cascading order determines which style sheet apply to the html based on priority.
+The cascading order determines which style sheet apply to the html based on priority / or importance.
 - 1st priority = Inline CSS
 - 2nd priority = Internal CSS
 - 3rd priority = External CSS
@@ -1043,20 +1052,12 @@ A combinator is something that explains the relationship between the selectors. 
 A pseudo-class is used to define a special state of an element. 
 #### 11.3.1. :link, :visited, :hover, :active
 
-In addition, links can be styled differently depending on what state they are in. 
-
-By default, links will appear as follows in all browsers:
-
-- An unvisited link is underlined and blue
-- A visited link is underlined and purple
-- An active link is underlined and red
-
 You can edit the links with CSS in four states:
 
-- a:link – a normal, unvisited 
-- a:visited – a link the user has visited
+- a:link – a normal, unvisited (underline and blue)
+- a:visited – a link the user has visited (underlined and purple)
 - a:hover – a link when the user mouse over it
-- a:active – a link the moment it is clicked
+- a:active – a link the moment it is clicked (underlined and red)
 
 ```css
       a:link {
@@ -1463,10 +1464,10 @@ Selects elements with class names starting with "btn-".
 
 ## 13. Display Property
 
-- inline
-- block
-- inline-block
-- none
+- inline --> Element takes only as much width as content, stays in the same line.
+- block --> Element takes full width, starts on a new line.
+- inline-block --> Behaves like inline but can have width and height.
+- none --> Element is hidden and removed from the layout
 
 ```html
 <!DOCTYPE html>
