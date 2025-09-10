@@ -57,38 +57,34 @@
   - [14.3. absolute:](#143-absolute)
   - [14.4. Sticky:](#144-sticky)
   - [14.5. Fixed:](#145-fixed)
+  - [14.6. When to use relative and absolute?](#146-when-to-use-relative-and-absolute)
 - [15. z-index property](#15-z-index-property)
 - [16. Overflow](#16-overflow)
 - [17. Opacity](#17-opacity)
 - [18. Box shadow](#18-box-shadow)
-  - [18.1. Specify a color for the shadow:](#181-specify-a-color-for-the-shadow)
-  - [18.2. Add a blur effect to the shadow:](#182-add-a-blur-effect-to-the-shadow)
-  - [18.3. Set the spread radius of the shadow:](#183-set-the-spread-radius-of-the-shadow)
-  - [18.4. Set the inset parameter:](#184-set-the-inset-parameter)
 - [19. Media Queries](#19-media-queries)
-  - [19.1. CSS Media Types:](#191-css-media-types)
-  - [19.2. CSS Media Features:](#192-css-media-features)
-  - [19.3. Syntax:](#193-syntax)
-  - [19.4. Fully responsive media queries breakpoints:](#194-fully-responsive-media-queries-breakpoints)
+  - [19.1. Media Type:](#191-media-type)
+  - [19.2. Media features](#192-media-features)
+  - [19.3. Common breakpoints](#193-common-breakpoints)
 - [20. flex](#20-flex)
   - [20.1. Container Properties:](#201-container-properties)
-  - [20.2. justify-content](#202-justify-content)
-  - [20.3. align-items](#203-align-items)
-  - [20.4. align-content](#204-align-content)
-  - [20.5. flex-warp](#205-flex-warp)
-  - [20.6. flex-direction](#206-flex-direction)
-  - [20.7. flex-flow](#207-flex-flow)
-  - [20.8. Items Properties:](#208-items-properties)
-  - [20.9. order](#209-order)
-  - [20.10. flex-grow](#2010-flex-grow)
-  - [20.11. flex-shrink](#2011-flex-shrink)
-  - [20.12. flex-basis](#2012-flex-basis)
-  - [20.13. flex](#2013-flex)
-    - [20.13.1. flex:1;](#20131-flex1)
-  - [20.14. align-self](#2014-align-self)
-  - [20.15. Example:](#2015-example)
-    - [20.15.1. Perfect Centering with justify-content and align-items](#20151-perfect-centering-with-justify-content-and-align-items)
-    - [20.15.2. Perfect Centering with margin: auto;](#20152-perfect-centering-with-margin-auto)
+    - [20.1.1. justify-content](#2011-justify-content)
+    - [20.1.2. align-items](#2012-align-items)
+    - [20.1.3. align-content](#2013-align-content)
+    - [20.1.4. flex-warp](#2014-flex-warp)
+    - [20.1.5. flex-direction](#2015-flex-direction)
+    - [20.1.6. flex-flow](#2016-flex-flow)
+  - [20.2. Items Properties:](#202-items-properties)
+    - [20.2.1. order](#2021-order)
+    - [20.2.2. flex-grow](#2022-flex-grow)
+    - [20.2.3. flex-shrink](#2023-flex-shrink)
+    - [20.2.4. flex-basis](#2024-flex-basis)
+    - [20.2.5. flex](#2025-flex)
+      - [20.2.5.1. flex:1;](#20251-flex1)
+    - [20.2.6. align-self](#2026-align-self)
+  - [20.3. Example:](#203-example)
+    - [20.3.1. Perfect Centering with justify-content and align-items](#2031-perfect-centering-with-justify-content-and-align-items)
+    - [20.3.2. Perfect Centering with margin: auto;](#2032-perfect-centering-with-margin-auto)
 - [21. Grid](#21-grid)
   - [21.1. Grid Container](#211-grid-container)
   - [21.2. grid-template-columns](#212-grid-template-columns)
@@ -142,13 +138,11 @@
 
 
 ## 1. CSS Introduction
-CSS = Cascading Style Sheets
-
-It is a stylesheet language used to describe the presentation of a document written in HTML. CSS controls the layout, design, and visual presentation of web pages.
+CSS stands for Cascading Style Sheets. It’s used to control the presentation and layout of HTML elements.
 
 ![css-syntax](./assets/images/css-syntax.png)
 
-- The selector pints to the HTML element you want to style.
+- The selector points to the HTML element you want to style.
 - The Declaration block contains one or more declarations separated by semicolons and surrounded by curly braces.  Each Declaration includes a CSS property name and a value, separated by a colon.
 
 ### 1.1. How To Add CSS
@@ -667,18 +661,6 @@ if you want to add multiple background images, it will be separated by commas.
 
 ![](./assets/images/background-image-1.png)
 
-Multiple background images can be specified using the background shorthand property.
-
-```html
-    <style>
-        div {
-            width: 600px;
-            height: 300px;
-            border: 1px solid red;
-            background: url(assets/boy.svg) no-repeat right bottom, url(assets/ring.svg) no-repeat left top;
-        }
-    </style>
-```
 
 - background-position: top, bottom, left, right, center;    
   you can also use them: top left, top center, top right, bottom right, 50px 100px, 20% 40%, top 30px left20px
@@ -1553,6 +1535,7 @@ Selects elements with class names starting with "btn-".
 
 ## 14. Position Property
 ### 14.1. static(default):
+All elements are static by default. They follow the normal document flow. Thats means top, left, right, bottom have no effect.
 
 ![](./assets/images/static.png)
 
@@ -1579,7 +1562,7 @@ CSS:
 ```
 
 ### 14.3. absolute:	
-When we apply position: absolute to an element, it is completely removed from its original position in the document flow. This allows us to move it around freely using properties like top, right, bottom, and left to base on her parent frame. However, since the element is no longer part of the normal flow, its original space is not reserved, causing other elements to shift and fill the gap.
+When we apply position: absolute to an element, it is completely removed from its original position in the document flow and is positioned relative to the nearest ancestor that has a non-static position (usually relative, absolute, or fixed).This allows us to move it around freely using properties like top, right, bottom, and left to base on her parent frame. However, since the element is no longer part of the normal flow, its original space is not reserved, causing other elements to shift and fill the gap.
 
 ![](./assets/images/absolute.png)
 
@@ -1596,7 +1579,7 @@ When we apply position: absolute to an element, it is completely removed from it
 ```
 
 ### 14.4. Sticky:	
-The position: sticky property allows an element to "stick" to a specific position within its parent container when the page is scrolled. It behaves like relative until a specified scroll position is reached, then it behaves like fixed. This is often used to keep elements like headers or navigation bars visible while scrolling.
+The position: sticky property allows an element to “stick” to a specified position within its parent container when scrolling.
 
 ![](./assets/images/sticky.gif)
 
@@ -1623,7 +1606,9 @@ The position: sticky property allows an element to "stick" to a specific positio
 ```
 
 ### 14.5. Fixed:	
-The position: fixed are the same but it gives her space to other and follow the position to her parent.
+
+The position: fixed property allows an element to “fixed” to the viewport, not its parent container when scrolling
+
 
 ![](./assets/images/fixed2.gif)
 
@@ -1647,6 +1632,22 @@ The position: fixed are the same but it gives her space to other and follow the 
     position: fixed;
     top: 20px;
 }
+```
+### 14.6. When to use relative and absolute?
+
+when you need to move freely a child element based on a parent element. 
+
+```css
+.card {
+  position: relative; /* parent element acts as reference for child */
+}
+
+.badge {
+  position: absolute; /* child can be moved freely within parent */
+  top: 10px;
+  right: 10px; 
+}
+
 ```
 
 
@@ -1736,7 +1737,6 @@ The opacity property can take a value form 0.0 – 1.0. The lower the value, the
 ![](./assets/images/opacity.gif)
 
 ## 18. Box shadow
-The CSS box-shadow property is used to apply one or more shadows to an element. 
 
 **Specify a Horizontal and a Vertical shadow:**
 
@@ -1811,54 +1811,58 @@ The inset parameter changes the shadow from an outer shadow to an inner shadow.
 ![](./assets/images/shadow5.png)
 
 
-### 18.1. Specify a color for the shadow:	
-### 18.2. Add a blur effect to the shadow:	
-### 18.3. Set the spread radius of the shadow:	
-### 18.4. Set the inset parameter:	
-
-
 ## 19. Media Queries
 
-- max-width (Desktop-First) = works when the screen is at least this wide or smaller.
+Media queries are used to make websites responsive by applying CSS rules based on media types and media features.
+
+![](./assets/images/media-query-anatomy.webp)
+
+### 19.1. Media Type: 
+
+- all → Default, applies to all devices.
+- screen → For screens (monitors, mobiles, tablets).
+- print → For printers.
+- speech → For screen readers.
+
+### 19.2. Media features
+- min-width (Mobile first) → Apply styles when the screen is at least this width. That means the styles will work on screens greater than or equal to this width.
+- max-width (Desktop first)→ Apply styles when the screen is at most this width. That means the styles will work on screens less than or equal to this width.
+- min-height / max-height → Similar, but based on height.
 
 ```css
-/* Default (desktop) */
-body { font-size: 18px; }
-
-/* Tablet and smaller */
-@media (max-width: 1024px) {
-  body { font-size: 16px; }
-}
-
-/* Mobile */
-@media (max-width: 768px) {
-  body { font-size: 14px; }
-}
-```  
- 
-- min-width(Mobile first - recommended) = works when the screen is at least this wide or bigger.
-
-```css
-/* Default (mobile) */
-body { font-size: 14px; }
-
-/* Tablet and up */
+/* min-width: 768px → works on tablets and larger */
 @media (min-width: 768px) {
-  body { font-size: 16px; }
+  body { background: lightblue; }
 }
 
-/* Desktop and up */
-@media (min-width: 1024px) {
-  body { font-size: 18px; }
+/* max-width: 767px → works on mobiles */
+@media (max-width: 767px) {
+  body { background: lightgreen; }
 }
+
+/* min-width + max-width → works only between 768px and 1024px */
+@media (min-width: 768px) and (max-width: 1024px) {
+  body { background: lightcoral; }
+}
+
+```
+- resolution → Useful for detecting high-DPI (Retina) displays.
+- aspect-ratio → Based on width:height ratio.
+
+```css
+/* High-resolution screens (Retina displays, 2x density) */
+@media (min-resolution: 192dpi) {
+  img { content: url("high-res.png"); }
+}
+
+/* Screens with aspect ratio wider than 16:9 */
+@media (min-aspect-ratio: 16/9) {
+  .video { max-width: 80%; }
+}
+
 ```
 
-- max-height = maximum height of the viewport
-- min-height = minimum heigh of the viewport
-- width = width of the viewport (include scrollbar)
-- height = height of the viewport (including scrollbar)
-
-**Common breakpoints**
+### 19.3. Common breakpoints
 
 - Extra small (mobile): max-width: 600px
 
@@ -1870,50 +1874,44 @@ body { font-size: 14px; }
 
 - Extra large (wide desktop): min-width: 1441px
 
-### 19.1. CSS Media Types:	
-### 19.2. CSS Media Features:	
-### 19.3. Syntax:	
-### 19.4. Fully responsive media queries breakpoints:
-
-
 
 ## 20. flex
 
 ### 20.1. Container Properties: 
 
-### 20.2. justify-content
+#### 20.1.1. justify-content
 The justify-content property is used to align the flex items when they do not use all available space on the main-axis(horizontally).  
 
 ![](./assets/images/justify-content.png)
 
-### 20.3. align-items
+#### 20.1.2. align-items
 The align-items property is used to align the single-line flex items when they do not use all available space on the cross-axis (vertically).
 
 ![](./assets/images/align-item.png)
 
-### 20.4. align-content
+#### 20.1.3. align-content
 The align-content property is used to align the multiple-line flex items when they do not use all available space on the cross-axis(vertically).
 **Note:** applies only when the flex-wrap is set to wrap or wrap-reverse. 
 
 ![](./assets/images/align-content.png)
 
-### 20.5. flex-warp
+#### 20.1.4. flex-warp
 The flex-wrap property specifies whether the flex items should wrap or not, if there is not enough room for them on one flex line.
 
 ![](./assets/images/flex-wrap.png)
 
-### 20.6. flex-direction
+#### 20.1.5. flex-direction
 The flex-direction property specifies the display-direction of flex items in the flex container. 
 
 ![](./assets/images/flex-direction.png)
 
-### 20.7. flex-flow 
+#### 20.1.6. flex-flow 
 The flex-flow property is a shorthand property for setting both the flex-direction and flex-wrap.
 
 
-### 20.8. Items Properties:
+### 20.2. Items Properties:
 
-### 20.9. order
+#### 20.2.1. order
 
 ![](./assets/images/order.png)
 
@@ -1959,7 +1957,7 @@ The order property can change the order of the flex items. The order value must 
 
 ![](./assets/images/order-1.png)
 
-### 20.10. flex-grow
+#### 20.2.2. flex-grow
 
 ![](./assets/images/flex-grow.png)
 
@@ -2005,7 +2003,7 @@ Controls how much a flex item grows to fill available space. A higher value mean
 
 ![](./assets/images/flex-grow-1.png)
 
-### 20.11. flex-shrink
+#### 20.2.3. flex-shrink
 
 ![](./assets/images/flex-shrink.png)
 
@@ -2059,9 +2057,7 @@ Controls how much a flex item shrinks when there is not enough space. A higher v
 
 ![](./assets/images/flex-shrink-1.png)
 
-### 20.12. flex-basis
-
-![](./assets/images/flex-direction.png)
+#### 20.2.4. flex-basis
 
 Defines the starting size of a flex item before any growing or shrinking occurs. Can be set in PX, %, or auto (default).
 
@@ -2105,12 +2101,10 @@ Defines the starting size of a flex item before any growing or shrinking occurs.
 </html>
 ```
 
-![](./assets/images/flex-direction.png)
+![](./assets/images/flex-basis.png)
 
 
-### 20.13. flex
-
-![](./assets/images/flex.png)
+#### 20.2.5. flex
 
 The flex property is a shorthand property for the flex-grow, flex-shrink and flex-basis properties.
 
@@ -2181,7 +2175,7 @@ But in this example, the container is 600px wide. Item 2 remains 200px, but Item
 
 ![](./assets/images/flex-imag.png)
 
-#### 20.13.1. flex:1;
+##### 20.2.5.1. flex:1;
 flex: 1; is a shorthand for flex: 1 1 0%; which consists of three properties:  
 
 - flex-grow: 1 → Allows the item to grow if extra space is available.
@@ -2232,7 +2226,7 @@ flex: 1; is a shorthand for flex: 1 1 0%; which consists of three properties:
 
 ![](./assets/images/flex.gif)
 
-### 20.14. align-self
+#### 20.2.6. align-self
 The align-self property overrides the default alignment set by the flex container. It has the following value:auto(default) | flex-start | flex-end | center | baseline | stretch;
 
 ```html
@@ -2264,8 +2258,8 @@ The align-self property overrides the default alignment set by the flex containe
 ![](./assets/images/align-self-1.png)
 
 
-### 20.15. Example:
-#### 20.15.1. Perfect Centering with justify-content and align-items
+### 20.3. Example:
+#### 20.3.1. Perfect Centering with justify-content and align-items
 
 ```css
 .flex-container{
@@ -2293,7 +2287,7 @@ The align-self property overrides the default alignment set by the flex containe
 
 ![](./assets/images/perfect-centaring-1.png)
 
-#### 20.15.2. Perfect Centering with margin: auto;
+#### 20.3.2. Perfect Centering with margin: auto;
 
 ```css
 .flex-container{
@@ -2324,6 +2318,7 @@ The align-self property overrides the default alignment set by the flex containe
 
 
 ## 21. Grid
+
 ### 21.1. Grid Container
 
 ### 21.2. grid-template-columns
@@ -2466,23 +2461,23 @@ Vertically aligns the whole grid inside the container (when the total grid size 
 
 #### 21.5.2. align-content: space-around;
 
-![](./assets/images/align-content:space-evenly.png)
+![](./assets/images/align-content:space-around.png)
 
 #### 21.5.3. align-content: space-between;
 
-![](./assets/images/align-content:space-evenly.png)
+![](./assets/images/align-content:space-between.png)
 
 #### 21.5.4. align-content: center;
 
-![](./assets/images/align-content:space-evenly.png)
+![](./assets/images/align-content:center.png)
 
 #### 21.5.5. align-content: start;
 
-![](./assets/images/align-content:space-evenly.png)
+![](./assets/images/align-content:start.png)
 
 #### 21.5.6. align-content: end;
 
-![](./assets/images/align-content:space-evenly.png)
+![](./assets/images/align-content:end.png)
 
 #### 21.5.7. align-content: stretch (default)
 
@@ -2742,8 +2737,10 @@ A shorthand property for the align-self and the justify-self properties.
 ### 21.12. Grid Tricks:
 
 #### 21.12.1. repeat() function
-The repeat () function can save some typing:
-```grid-template-columns: repeat(7, 1fr);  /*1fr 1fr 1fr 1fr 1fr 1fr 1fr*/```
+The repeat () function can save some typing:  
+
+```grid-template-columns: repeat(7, 1fr);  /*1fr 1fr 1fr 1fr 1fr 1fr 1fr*/```  
+
 ```grid-template-columns: repeat(7, auto);  /*auto auto auto auto auto auto auto*/```
 
 #### 21.12.2. Difference between 1fr and auto
@@ -3302,10 +3299,6 @@ CSS transitions allow you to change property values smoothly, over a given durat
 
 CSS transitions have the following properties:
 - transition (shorthand of transition-property, transition-duration, transition-timeing-function, transition-delay)
-- transition-property
-- transition-duration
-- transition-timing-function
-- transition-delay
 
 To create a transition effect, you must specify two things:
 - The CSS property you want to add an effect to
@@ -3419,7 +3412,7 @@ The transition-timing-function property specifies the speed curve of the transit
         }
 ```
 
-![](./assets/images/transition-example-1.gif)
+![](./assets/images/transition-example-4.gif)
 
 
 ## 23. Transform
